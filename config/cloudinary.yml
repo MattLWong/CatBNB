@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: mwong9968
+  api_key: '348922699694587'
+  api_secret: U9EbP-p4xfWgZkAB8KyJ7JGEex4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: mwong9968
+  api_key: '348922699694587'
+  api_secret: U9EbP-p4xfWgZkAB8KyJ7JGEex4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: mwong9968
+  api_key: '348922699694587'
+  api_secret: U9EbP-p4xfWgZkAB8KyJ7JGEex4
+  enhance_image_tag: true
+  static_image_support: false
