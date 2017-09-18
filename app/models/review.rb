@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   validates :listing_id, :guest_id, :rating, :description, presence: true
+  validates :rating, inclusion: { in: (1..5) }
 
   belongs_to :guest,
   primary_key: :id,
