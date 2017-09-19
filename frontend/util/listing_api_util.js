@@ -1,7 +1,7 @@
 export const fetchListings = data => (
   $.ajax({
     method: 'GET',
-    url: 'api/benches',
+    url: 'api/listings',
     data
   })
 )
