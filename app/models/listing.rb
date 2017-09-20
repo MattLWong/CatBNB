@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
 
   geocoded_by :return_full_street_address
-  after_initialize :geocode
+  before_validation :geocode
 
   validates :title, :description, :host_id, :street_address, :latitude, :longitude, :city, :zip, :country, :price, :cover_img_url, presence: true
 

@@ -8,6 +8,10 @@ class Api::ListingsController < ApplicationController
       listings = listings.where(price: price_range)
     end
 
+    if params[:numberOfCats]
+      listings = listings.where(max_cats: cat_range)
+    end
+
     @listings = listings
     render :index
   end
@@ -32,21 +36,23 @@ class Api::ListingsController < ApplicationController
     (params[:minPrice]..params[:maxPrice])
   end
 
+  def cat_range
+    (params[:numberCats]..99)
+  end
 
   def listing_params
     input = params.require(:listing).permit(
       :title,
       :description,
       :host_id,
-      :lat,
-      :lng,
       :street_address,
       :city,
       :zip,
       :country,
       :apt,
       :price,
-      :cover_img_url
+      :cover_img_url,
+      :max_cats
     )
   end
 
