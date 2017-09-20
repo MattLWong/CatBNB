@@ -53,6 +53,30 @@ module CitiesFactory
   City.create(city_name: 'La Jolla', state: 'California', country: "United States")
 
 
+  # within SF
+  City.create(city_name: 'Outer Richmond District, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Richmond District, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Laurel Heights, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Outer Sunset, San Francisco, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Inner Sunset, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Forest Hill, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Mission District, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Financial District, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Mission Bay, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Haight-Ashbury, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Castro District, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Dogpatch, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Bernal Heights, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Noe Valley, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Russian Hill, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: 'Japantown, San Francisco', state: 'California', country: 'United States')
+  City.create(city_name: "Presidio Heights, San Francisco", state: "California", country: "United States")
+  City.create(city_name: "Jordan Park, San Francisco", state: "California", country: "United States")
+  City.create(city_name: "Laguna Heights, San Francisco", state: "California", country: "United States")
+  City.create(city_name: "Nob Hill, San Francisco", state: "California", country: "United States")
+  City.create(city_name: "Twin Peaks, San Francisco", state: "California", country: "United States")
+  City.create(city_name: "Glen Park, San Francisco", state: "California", country: "United States")
+  City.create(city_name: "Excelsior, San Francisco", state: "California", country: "United States")
 
-  # international
+  # Easy Bay
 end

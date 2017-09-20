@@ -17,3 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });
+
+import {fetchCities} from './actions/cities_search_actions';
+window.fetchCities = fetchCities;

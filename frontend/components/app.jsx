@@ -10,21 +10,12 @@ import {
 
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
-import GreetingContainer from './greeting/greeting_container';
-import LoginContainer from './session_form/login_container';
-import SignUpContainer from './session_form/sign_up_container';
+import Header from './header/header';
 
 const App = () => (
   <div>
-    <header>
-      <Link to="/" className="header-link">
-        <h1>Catbnb</h1>
-      </Link>
-      <GreetingContainer/>
-    </header>
+    <Header/>
     <Switch>
-      <AuthRoute path="/login" component={LoginContainer} />
-      <AuthRoute path="/signup" component={SignUpContainer} />
     </Switch>
   </div>
 )

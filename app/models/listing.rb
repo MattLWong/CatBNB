@@ -5,7 +5,6 @@ class Listing < ApplicationRecord
 
   validates :title, :description, :host_id, :street_address, :latitude, :longitude, :city, :zip, :country, :price, :cover_img_url, presence: true
 
-
   belongs_to :host,
   primary_key: :id,
   foreign_key: :host_id,
