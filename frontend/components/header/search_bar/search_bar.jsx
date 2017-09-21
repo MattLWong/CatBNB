@@ -23,16 +23,17 @@ class SearchBar extends React.Component {
       <div className="search-div-1">
         <div className="search-div-2">
           <form className="search-form">
-            <div>
+            <div className="search-div-3">
               <input
+                className="search-bar"
                 type="text"
                 placeholder="Search"
                 value={this.state.search_string}
                 onChange={this.handleChange.bind(this)}
                 />
-            </div>
-            <div>
-              <img/>
+              <div className="loupe-div">
+                <img id="loupe" src="/assets/loupe.jpg"></img>
+              </div>
             </div>
           </form>
         </div>

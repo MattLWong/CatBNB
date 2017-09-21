@@ -6,7 +6,7 @@ const Logo = () => (
       <a className="logo-anchor">
         <div className="logo-div-3">
           <div className="logo-div-4">
-            <img className="logo"/>
+            <img id="logo" src='/assets/logo.jpg'></img>
           </div>
         </div>
       </a>

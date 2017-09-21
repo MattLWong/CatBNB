@@ -1,6 +1,4 @@
-import * as APIUtil from '../util/filter_api_util';
-
-import { fetchListing } from './listing_actions';
+import { fetchListings } from './listings_actions';
 
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 
@@ -12,5 +10,5 @@ export const changeFilter = (filter, value) => ({
 
 export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
-  dispatch(fetchListings(getState().filters));
+  return dispatch(fetchListings(getState().filters));
 }

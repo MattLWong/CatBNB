@@ -16,7 +16,7 @@ class NavBar extends React.Component {
 
   renderLoggedOutItems() {
     return(
-      <ul>
+      <ul className="nav-ul">
         <li>
           <a>
             <div>
@@ -59,7 +59,7 @@ class NavBar extends React.Component {
 
   renderLoggedInItems() {
     return(
-      <ul>
+      <ul className="nav-ul">
         <li>
           <a>
             <div>
@@ -100,8 +100,9 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>(Profile pic)</span>
-                <img></img>
+                <div className="profile-pic-div">
+                  <img id="profile-pic" src={this.props.profile_url}></img>
+                </div>
               </div>
             </div>
           </a>

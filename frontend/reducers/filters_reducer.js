@@ -5,7 +5,7 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 const defaultFilters = Object.freeze({
   bounds: {},
   minPrice: 1,
-  maxSeating: 100,
+  maxPrice: 150,
   minBeds: 1,
   maxBeds: 10
 });

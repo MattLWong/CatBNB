@@ -15,6 +15,9 @@ import Header from './header/header';
 const App = () => (
   <div>
     <Header/>
+    <main id="site-content">
+
+    </main>
     <Switch>
     </Switch>
   </div>
