@@ -219,19 +219,13 @@ div.modal {
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-}
-
 .close {
-  color: #aaa;
   float: right;
+  margin-top: -17px;
+  cursor: pointer;
   font-size: 28px;
   font-weight: bold;
+  color: #aaa;
 }
 
 .close:hover,
@@ -239,6 +233,15 @@ div.modal {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 22% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  text-align: center;
 }
 
 

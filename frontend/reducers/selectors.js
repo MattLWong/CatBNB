@@ -1,5 +1,5 @@
-export const asArray = listings => (
-  Object.keys(listings).map(key => listings[key])
+export const asArray = obj => (
+  Object.keys(obj).map(key => obj[key])
 )
 
 export const citiesArray = (citiesObj) => (

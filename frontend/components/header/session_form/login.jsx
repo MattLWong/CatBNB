@@ -50,11 +50,9 @@ class Login extends React.Component {
   render() {
     return (
       <div className="modal" id="loginModal">
-        <div className="modal-content">
-          <span id="close-btn-1">&times;</span>
+        <div className="modal-content" id="modal-box">
+          <span id="close-btn-1" className="close">&times;</span>
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            Welcome to CatBNB!
-            <br/>
             {this.renderErrors()}
             <div className="login-form">
               <br/>

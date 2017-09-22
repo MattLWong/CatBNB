@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SearchBarCity from './search_bar_city';
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props)
@@ -13,10 +15,24 @@ class SearchBar extends React.Component {
   }
 
   componentDidUpdate() {
+    debugger;
     if(this.state.search_string.length > 0) {
       this.props.search(this.state.search_string)
     }
   }
+
+  renderResults() {
+    this.props.cities.map( (city, idx) => (
+      <li key={idx}>
+        <span key={idx}>
+          <a key={idx}>
+            {city.city_name}, {city.state}, {city.country}
+          </a>
+        </span>
+      </li>
+    ))
+  }
+
 
   render() {
     return(
@@ -36,6 +52,11 @@ class SearchBar extends React.Component {
               </div>
             </div>
           </form>
+        </div>
+        <div className="cities-search-results">
+          <ul>
+            {this.renderResults()}
+          </ul>
         </div>
       </div>
     )

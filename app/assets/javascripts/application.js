@@ -28,16 +28,11 @@ $( document ).ready(function() {
       $loginModal.css('display','none');
       $signupModal.css('display','none');
     })
-    $('#loginBtn').click(function() {
-      setupLogin();
-    })
-    $('#signupBtn').click(function() {
-      setupSignup();
-    })
   }
 
   const setupSignup = function() {
     $signupModal.css('display','block');
+
     setupClose();
     $('#login-2').click(function() {
       $signupModal.css('display','none');
@@ -54,40 +49,20 @@ $( document ).ready(function() {
     })
   }
 
-  setupClose();
-  //
-  //
-  // const setUpLogin = function() {
-  //   $('#loginBtn').click(function() {
-  //     $loginModal.css("display","block");
-  //     $("#close-btn").click(function() {
-  //       $loginModal.css("display","none");
-  //       setUpSignup();
-  //       setUpLogin();
-  //     })
-  //     $('#signup-2').click(function() {
-  //       $loginModal.css("display","none");
-  //       $signupModal.css('display','block');
-  //       setUpSignup();
-  //       setUpLogin();
-  //     })
-  //   });
-  // }
-  //
-  // const setUpSignup = function() {
-  //   $('#signupBtn').click(function() {
-  //     $loginModal.css('display','none');
-  //     $signupModal.css("display","block");
-  //     $("#close-btn").click(function() {
-  //       $signupModal.css("display","none")
-  //       setUpLogin();
-  //       setUpSignup();
-  //     })
-  //     $('#login-2').click(function() {
-  //       $signupModal.css("display","none");
-  //       $loginModal.css('display','block');
-  //       setUpLogin();
-  //       setUpSignup();
-  //     })
-  //   })
+  const setupCloseBox = function() {
+    $('body').click(function(event){
+      if(!(event.target.id == "modal-box")) {
+        alert("Good job")
+      } else {
+
+      }
+    })
+  }
+
+  $('#loginBtn').click(function() {
+    setupLogin();
+  })
+  $('#signupBtn').click(function() {
+    setupSignup();
+  })
 })

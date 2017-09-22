@@ -29,7 +29,6 @@ class Signup extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.signup({user});
-
   }
 
   renderErrors() {
@@ -47,11 +46,9 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="modal" id="signupModal">
-        <div className="modal-content">
-          <span id="close-btn-2">&times;</span>
+        <div className="modal-content" id="modal-box">
+          <span id="close-btn-2" className="close">&times;</span>
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            Welcome to CatBNB!
-            <br/>
             {this.renderErrors()}
             <div className="login-form">
               <br/>
