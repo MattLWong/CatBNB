@@ -1,0 +1,18 @@
+.listing-index-item {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-bottom: 15px;
+}
+
+.listing-index-item h1 {
+  margin-top: 0px;
+  font-size: 12px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  color: #484848;
+}
+
+.listing-index-item img {
+  padding-right: 8px;
+}

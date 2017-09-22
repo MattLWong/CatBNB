@@ -4,10 +4,17 @@ class FilterForm extends React.Component {
   constructor(props){
     super(props)
     this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      minPrice: 1,
+      maxPrice: 150
+    }
   }
 
   handleChange(filter) {
-    return e => this.props.updateFilter(filter, e.currentTarget.value)
+    return e => {
+      this.setState({[filter]: e.currentTarget.value});
+      return this.props.updateFilter(filter, e.currentTarget.value)
+    }
   }
 
   render() {

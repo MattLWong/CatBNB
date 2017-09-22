@@ -138,13 +138,14 @@ module ListingsFactory
   CAT = [
     "Friendly Cat",
     "Cat",
+    "Awesome Cat",
     "Cat",
     "Kitty",
-    "Tabby",
-    "Feline Friend",
-    "Furry Friend",
+    "Cute Cat",
+    "Feline Buddy",
+    "Furry Partner",
     "Playmate",
-    'Furry Companion'
+    'Companion'
   ]
 
   5.times do
@@ -182,7 +183,7 @@ module ListingsFactory
     })
   end
 
-  30.times do
+  20.times do
     lat = 37.7019 + (rand(100).to_f/100 * 0.089)
     lng = -122.398 - (rand(100).to_f/100 * 0.108)
 

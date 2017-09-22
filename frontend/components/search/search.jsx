@@ -12,7 +12,8 @@ const Search = ({updateFilter, listings, lat, lng, minPrice, maxPrice, minBeds})
           minPrice={minPrice}
           maxPrice={maxPrice}
           minBed={minBeds}/>
-        <ListingIndex/>
+        <ListingIndex
+          listings={listings}/>
     </div>
     <div className="right-half">
       <ListingMap
