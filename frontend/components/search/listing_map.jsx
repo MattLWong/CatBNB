@@ -14,13 +14,34 @@ const SF = {
     lat: 37.773972,
     lng: -122.431297
   }, // San Francisco coords
-  zoom: 13
+  zoom: 12
 };
 
 class ListingMap extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      lat: 37.773972,
+      lng: -122.431297
+    };
+  }
+
   componentDidMount() {
     const map = this.refs.map;
-    this.map = new google.maps.Map(map, SF);
+    this.map = null;
+    if (this.props.lat) {
+      let coords = {
+        center: {
+          lat: parseFloat(this.props.lat),
+          lng: parseFloat(this.props.lng)
+        },
+        zoom: 14
+      }
+      this.map = new google.maps.Map(map, coords);
+    } else {
+      this.map = new google.maps.Map(map, SF);
+    }
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     this.registerListeners();
   }
@@ -28,6 +49,10 @@ class ListingMap extends React.Component {
   componentDidUpdate() {
     if (this.props.listings) {
       this.MarkerManager.updateMarkers(this.props.listings);
+    }
+    if (this.props.lat != this.state.lat) {
+      this.setState({lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng)});
+      this.map.setCenter({lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng)})
     }
   }
 

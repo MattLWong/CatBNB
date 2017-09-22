@@ -5,12 +5,15 @@ import {updateFilter} from '../../actions/filter_actions';
 import {asArray} from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   let queryString = ownProps.location.search;
-  let lat = queryString
+  let arr = ownProps.location.search.split('&')
+  let lat = arr[0].slice(5);
+  let lng = arr[1].slice(4);
   return({
     listings: asArray(state.listings),
-    filter: state.filters
+    filter: state.filters,
+    lat,
+    lng
   })
 };
 

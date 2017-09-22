@@ -4,7 +4,7 @@ import FilterForm from './filter_form';
 import ListingIndex from './listing_index';
 import ListingMap from './listing_map';
 
-const Search = ({updateFilter, listings}) => (
+const Search = ({updateFilter, listings, lat, lng}) => (
   <div className="search">
     <div className="left-half">
         <FilterForm
@@ -14,7 +14,9 @@ const Search = ({updateFilter, listings}) => (
     <div className="right-half">
       <ListingMap
           listings={listings}
-          updateFilter={updateFilter}/>
+          updateFilter={updateFilter}
+          lat={lat}
+          lng={lng}/>
     </div>
   </div>
 )

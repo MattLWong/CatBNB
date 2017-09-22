@@ -10,6 +10,8 @@ class SearchBar extends React.Component {
       search_string: "",
       counter: 0
     }
+
+    this.clearSearchBar = this.clearSearchBar.bind(this);
   }
 
   handleChange(e) {
@@ -26,17 +28,21 @@ class SearchBar extends React.Component {
     }
   }
 
+  clearSearchBar() {
+    this.setState({search_string: ""})
+  }
+
   renderResults() {
     let sortedCities = this.props.cities;
     if (this.state.search_string.length > 0) {
       return(
         sortedCities.map( (city, idx) => {
-          let lat = city.latitude.toString().slice(0,7);
-          let lng = city.longitude.toString().slice(0,7);
+          let lat = city.latitude.toString().slice(0,10);
+          let lng = city.longitude.toString().slice(0,10);
           return(
             <li key={idx}>
-              <span key={idx}>
-                <Link to={`/search?lat=${lat}&lng=${lng}`} key={idx}>
+              <span key={idx} onClick={this.clearSearchBar}>
+                <Link id="city-result" to={`/search?lat=${lat}&lng=${lng}`} key={idx}>
                   {city.city_name}, {city.state}, {city.country}
                 </Link>
               </span>

@@ -96,7 +96,7 @@ module ListingsFactory
     "Clean, Small",
     "Cozy & Accessible",
     "Private",
-    "Cat-Friendly",
+    "Friendly",
     "Spacious",
     "Quiet & Comfy",
     "Bright",
@@ -147,7 +147,7 @@ module ListingsFactory
     'Furry Companion'
   ]
 
-  15.times do
+  5.times do
     lat = 37.788 + (rand(100).to_f/100 * 0.017)
     lng = -122.398 - (rand(100).to_f/100 * 0.0605)
 
@@ -182,7 +182,7 @@ module ListingsFactory
     })
   end
 
-  60.times do
+  20.times do
     lat = 37.7019 + (rand(100).to_f/100 * 0.089)
     lng = -122.398 - (rand(100).to_f/100 * 0.108)
 
