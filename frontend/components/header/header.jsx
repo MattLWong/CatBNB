@@ -15,10 +15,12 @@ const Header = () => (
         <Logo/>
         <SearchBar/>
         <NavBarContainer/>
-        <AuthRoute path="/login" component={Login} />
-        <AuthRoute path="/signup" component={Signup} />
       </div>
     </div>
+
+    <Login/>
+    <Signup/>
+
   </header>
 )
 

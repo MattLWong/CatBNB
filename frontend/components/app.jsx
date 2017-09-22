@@ -11,15 +11,21 @@ import {
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
 import Header from './header/header';
+import HomeContainer from './home/home_container';
+import SearchContainer from './search/search_container';
+import ListingShowContainer from './listing/listing_show_container';
 
 const App = () => (
   <div>
     <Header/>
     <main id="site-content">
-
+      <Route exact path="/" component={HomeContainer} />
+      <Route path="/search" component={SearchContainer} />
+      <Route path="/listings/:listingId" component={ListingShowContainer} />
     </main>
-    <Switch>
-    </Switch>
+    <div className="footer">
+
+    </div>
   </div>
 )
 

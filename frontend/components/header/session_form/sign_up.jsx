@@ -46,49 +46,52 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to CatBNB!
-          <br/>
-          {this.renderErrors()}
-          <div className="login-form">
+      <div className="modal" id="signupModal">
+        <div className="modal-content">
+          <span id="close-btn-2">&times;</span>
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            Welcome to CatBNB!
             <br/>
-              <label>First name
-                <input type="text"
-                  value={this.state.first_name}
-                  onChange={this.update('first_name')}
-                  className="login-input"
-                />
-              </label>
+            {this.renderErrors()}
+            <div className="login-form">
               <br/>
-                <label>Last name
+                <label>First name
                   <input type="text"
-                    value={this.state.last_name}
-                    onChange={this.update('last_name')}
+                    value={this.state.first_name}
+                    onChange={this.update('first_name')}
                     className="login-input"
                   />
                 </label>
                 <br/>
-                  <label>Email:
+                  <label>Last name
                     <input type="text"
-                      value={this.state.email}
-                      onChange={this.update('email')}
+                      value={this.state.last_name}
+                      onChange={this.update('last_name')}
                       className="login-input"
                     />
                   </label>
                   <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <input type="submit" value="Submit" />
-          </div>
-          <Link to="/login">Already have an account?</Link>
-        </form>
+                    <label>Email:
+                      <input type="text"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                        className="login-input"
+                      />
+                    </label>
+                    <br/>
+              <label>Password:
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                />
+              </label>
+              <br/>
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
+          <span id='login-2'>Already have an account?</span>
+        </div>
       </div>
     );
   }

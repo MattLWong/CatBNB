@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
+import Search from './search';
+import {updateFilter} from '../../actions/filter_actions';
+
+import {asArray} from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  listings: state.listings,
+  listings: asArray(state.listings),
   filter: state.filters
 });
 

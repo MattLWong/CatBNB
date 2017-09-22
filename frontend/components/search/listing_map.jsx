@@ -2,20 +2,33 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { withRouter } from 'react-router-dom';
 
-import MarkerManager from '../../../util/marker_manager';
+import MarkerManager from '../../util/marker_manager';
+
+const getCoordsObj = latLng => ({
+  lat: latLng.lat(),
+  lng: latLng.lng()
+});
+
+const SF = {
+  center: {
+    lat: 37.773972,
+    lng: -122.431297
+  }, // San Francisco coords
+  zoom: 13
+};
 
 class ListingMap extends React.Component {
   componentDidMount() {
     const map = this.refs.map;
-    this.map = new google.maps.Map(map, mapOptions);
+    this.map = new google.maps.Map(map, SF);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-
     this.registerListeners();
-    this.MarkerManager.updateMarkers(this.props.listings);
   }
 
   componentDidUpdate() {
-    this.MarkerManager.updateMarkers(this.props.listings);
+    if (this.props.listings) {
+      this.MarkerManager.updateMarkers(this.props.listings);
+    }
   }
 
   registerListeners() {

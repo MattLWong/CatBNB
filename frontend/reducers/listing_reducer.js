@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_LISTING
-} from '../actions/listings_actions';
+} from '../actions/listing_actions';
 
 const ListingReducer = (state = {}, action) => {
   Object.freeze(state)

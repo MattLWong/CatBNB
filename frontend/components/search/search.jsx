@@ -5,7 +5,7 @@ import ListingIndex from './listing_index';
 import ListingMap from './listing_map';
 
 const Search = ({updateFilter, listings}) => (
-  <div className="user-pane">
+  <div className="search">
     <div className="left-half">
         <FilterForm
           updateFilter={updateFilter}/>
@@ -13,8 +13,8 @@ const Search = ({updateFilter, listings}) => (
     </div>
     <div className="right-half">
       <ListingMap
-        listing={listings}
-        updateFilter={updateFilter}/>
+          listings={listings}
+          updateFilter={updateFilter}/>
     </div>
   </div>
 )

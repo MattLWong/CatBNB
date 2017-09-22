@@ -49,34 +49,37 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to CatBNB!
-          <br/>
-          {this.renderErrors()}
-          <div className="login-form">
+      <div className="modal" id="loginModal">
+        <div className="modal-content">
+          <span id="close-btn-1">&times;</span>
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            Welcome to CatBNB!
             <br/>
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </label>
-            <br/>
-            <input type="submit" value="Submit" />
-            <button onClick={this.login_default}>Guest log in</button>
-          </div>
-          <Link to="/signup">sign up instead</Link>;
-        </form>
+            {this.renderErrors()}
+            <div className="login-form">
+              <br/>
+              <label>Email:
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="login-input"
+                />
+              </label>
+              <br/>
+              <label>Password:
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                />
+              </label>
+              <br/>
+              <input type="submit" value="Submit" />
+              <button onClick={this.login_default}>Guest log in</button>
+            </div>
+          </form>
+          <span id='signup-2'>Already have an account?</span>
+        </div>
       </div>
     );
   }
