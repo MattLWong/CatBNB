@@ -182,7 +182,7 @@ module ListingsFactory
     })
   end
 
-  20.times do
+  30.times do
     lat = 37.7019 + (rand(100).to_f/100 * 0.089)
     lng = -122.398 - (rand(100).to_f/100 * 0.108)
 

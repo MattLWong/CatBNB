@@ -3,15 +3,12 @@ import React from 'react';
 class FilterForm extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      checkin: null,
-      checkout: null,
-      cats: 1,
-      minPrice: 1,
-      maxPrice: 135
-    }
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange(filter) {
+    return e => this.props.updateFilter(filter, e.currentTarget.value)
+  }
 
   render() {
     return (
@@ -20,13 +17,18 @@ class FilterForm extends React.Component {
         <form className="filter-form">
           <label>
             Check In
-            <input type="date" />
+            <input
+              type="date"
+              onChange={this.handleChange("checkin")}/>
           </label>
           <label>
             Check Out
-            <input type="date" />
+            <input
+              type="date"
+              onChange={this.handleChange('checkout')}/>
           </label>
-          <select>
+          <select
+            onChange={this.handleChange('minBeds')}>
             <option value="1">1 Cat</option>
             <option value="2">2 Cat</option>
             <option value="3">3 Cat</option>
@@ -34,11 +36,17 @@ class FilterForm extends React.Component {
           </select>
           <label>
             Min
-            <input type="number"/>
+            <input
+              type="number"
+              value={this.state.minPrice}
+              onChange={this.handleChange("minPrice")}/>
           </label>
           <label>
             Max
-            <input type="number"/>
+            <input
+              type="number"
+              value={this.state.maxPrice}
+              onChange={this.handleChange("maxPrice")}/>
           </label>
         </form>
       </div>

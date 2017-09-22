@@ -44,6 +44,7 @@ class ListingMap extends React.Component {
     }
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     this.registerListeners();
+    this.props.updateFilter('minBeds', 1);
   }
 
   componentDidUpdate() {

@@ -9,10 +9,9 @@ class Api::ListingsController < ApplicationController
       listings = listings.where(price: price_range)
     end
 
-    if params[:numberOfCats]
+    if params[:minBeds]
       listings = listings.where(max_cats: cat_range)
     end
-
     @listings = listings
     render :index
   end
@@ -38,7 +37,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def cat_range
-    (params[:numberCats]..99)
+    ((params[:minBeds].to_i)..99)
   end
 
   def listing_params

@@ -13,7 +13,10 @@ const mapStateToProps = (state, ownProps) => {
     listings: asArray(state.listings),
     filter: state.filters,
     lat,
-    lng
+    lng,
+    minPrice: state.filters.minPrice,
+    maxPrice: state.filters.maxPrice,
+    minBeds: state.filters.minBeds
   })
 };
 
