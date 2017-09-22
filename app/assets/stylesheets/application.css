@@ -68,7 +68,6 @@ img {
   vertical-align: middle;
 }
 
-/*combines two div elements*/
 .logo-div-2 {
   box-sizing: border-box;
   position: relative;
@@ -105,10 +104,12 @@ img#logo {
   background-color: red;
 }
 
+/*Header Cities Search*/
 .search-div-1 {
   display: table-cell;
   width: 100%;
   vertical-align: middle;
+  position: relative;
 }
 
 .search-div-2 {
@@ -127,6 +128,23 @@ input.search-bar {
   border: none;
   background: none;
   width: 100%;
+}
+
+.cities-search-results {
+  position: absolute;
+}
+
+.cities-search-results ul {
+  padding-left: 34px;
+}
+
+.cities-search-results li {
+  padding: 10px;
+  background-color: rgba(190, 190, 218, 0.5);
+}
+
+.cities-search-results li:hover {
+  background-color: #b6fcd5;
 }
 
 .loupe-div {

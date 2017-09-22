@@ -1,36 +1,54 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 import SearchBarCity from './search_bar_city';
+import { Link } from 'react-router-dom';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      search_string: ""
+      search_string: "",
+      counter: 0
     }
   }
 
   handleChange(e) {
     this.setState({search_string: e.target.value});
+    this.setState({counter: 1});
   }
 
   componentDidUpdate() {
-    debugger;
     if(this.state.search_string.length > 0) {
-      this.props.search(this.state.search_string)
+      if (this.state.counter > 0) {
+        this.setState({counter: 0});
+        this.props.search(this.state.search_string)
+      }
     }
   }
 
   renderResults() {
-    this.props.cities.map( (city, idx) => (
-      <li key={idx}>
-        <span key={idx}>
-          <a key={idx}>
-            {city.city_name}, {city.state}, {city.country}
-          </a>
-        </span>
-      </li>
-    ))
+    let sortedCities = this.props.cities;
+    if (this.state.search_string.length > 0) {
+      return(
+        sortedCities.map( (city, idx) => {
+          let lat = city.latitude.toString().slice(0,7);
+          let lng = city.longitude.toString().slice(0,7);
+          return(
+            <li key={idx}>
+              <span key={idx}>
+                <Link to={`/search?lat=${lat}&lng=${lng}`} key={idx}>
+                  {city.city_name}, {city.state}, {city.country}
+                </Link>
+              </span>
+            </li>
+          )
+        }
+        )
+      )
+    } else {
+      return
+    }
+
   }
 
 
@@ -63,4 +81,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar
+export default withRouter(SearchBar)

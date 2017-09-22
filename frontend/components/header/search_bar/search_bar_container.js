@@ -4,8 +4,8 @@ import { asArray } from '../../../reducers/selectors';
 import SearchBar from './search_bar';
 
 const mapStateToProps = state => {
-  if (state.cities) {
-    return {cities: asArray(state.cities)}
+  if (state.cities.cities) {
+    return {cities: asArray(state.cities.cities)}
   } else {
     return {cities: []}
   }

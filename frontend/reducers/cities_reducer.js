@@ -15,7 +15,7 @@ const CitiesReducer = (state = nullState, action) => {
   switch(action.type) {
     case RECEIVE_CITIES:
       const cities = action.cities;
-      return merge({}, nullState, cities);
+      return merge({}, nullState, {cities});
     case RECEIVE_CITIES_ERRORS:
       const errors = action.errors;
       return merge({}, nullState, errors);
