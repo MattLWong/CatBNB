@@ -3,7 +3,11 @@ import React from 'react';
 import ListingIndexItem from './listing_index_item';
 
 const renderListings = (listings) => {
-  let lis = listings.map( (item, idx) => (
+
+  if (listings.length == 0) {
+    return <h1 className="no-listings">No listings found!</h1>
+  }
+  let list = listings.map( (item, idx) => (
     <ListingIndexItem
       key={idx}
       item={item}
@@ -11,7 +15,7 @@ const renderListings = (listings) => {
   ))
   return(
     <ul>
-      {lis}
+      {list}
     </ul>
   )
 }

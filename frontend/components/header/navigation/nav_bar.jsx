@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -96,8 +96,8 @@ class NavBar extends React.Component {
             </div>
           </a>
         </li>
-        <li>
-          <a>
+        <li className="li-profile">
+          <a id="profile-anchor">
             <div>
               <div>
                 <div className="profile-pic-div">
@@ -106,6 +106,24 @@ class NavBar extends React.Component {
               </div>
             </div>
           </a>
+          <div className='profile-drop-div'>
+            <ul className='tree'>
+              <li>
+                <Link to={`/users/edit`}>
+                  <div className="profile-drop-div-4">
+                    <span>Edit Profile</span>
+                  </div>
+                </Link>
+              </li>
+              <li>
+                <a onClick={this.props.logout}>
+                  <div>
+                    <span>Log Out</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     )
@@ -122,4 +140,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

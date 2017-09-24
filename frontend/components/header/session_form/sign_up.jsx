@@ -28,7 +28,10 @@ class Signup extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
+    var modal = document.getElementById('signupModal');
+    modal.style.display = "none";
     this.props.signup({user});
+
   }
 
   renderErrors() {

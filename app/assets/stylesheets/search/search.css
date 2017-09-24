@@ -9,10 +9,27 @@
   margin-top: 0px;
   font-size: 12px;
   font-weight: 600;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
   color: #484848;
 }
 
+.listing-index-item h2 {
+  margin-top: 0px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #484848;
+}
+
+.img-wrapper {
+  height: 200px;
+  width: auto;
+}
 .listing-index-item img {
   padding-right: 8px;
+  height: 100%;
+}
+
+.no-listings {
+  padding-top: 60px;
+  font-size: 28px;
 }

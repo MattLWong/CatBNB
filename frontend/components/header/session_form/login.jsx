@@ -27,11 +27,15 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
+    var modal = document.getElementById('loginModal');
+    modal.style.display = "none";
     this.props.login({user});
   }
 
   login_default(e) {
     e.preventDefault();
+    var modal = document.getElementById('loginModal');
+    modal.style.display = "none";
     this.props.login({user: {email: "guest@gmail.com", password: "password"}});
   }
 
