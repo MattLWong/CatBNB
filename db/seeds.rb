@@ -9,3 +9,4 @@
 require_relative "cities"
 require_relative 'user'
 require_relative "listings"
+require_relative "review"

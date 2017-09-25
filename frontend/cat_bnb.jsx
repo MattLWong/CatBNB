@@ -20,3 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 import {fetchCities} from './actions/cities_search_actions';
 window.fetchCities = fetchCities;
+import { fetchListing } from './actions/listing_actions';
+window.fetchListing = fetchListing;

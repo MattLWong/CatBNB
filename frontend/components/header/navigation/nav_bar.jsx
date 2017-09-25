@@ -21,16 +21,7 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>Host</span>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div>
-              <div>
-                <span>About</span>
+                <span>Become a Host</span>
               </div>
             </div>
           </a>
@@ -64,7 +55,7 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>Host</span>
+                <span>Host Your Spot</span>
               </div>
             </div>
           </a>
@@ -73,7 +64,7 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>Trips</span>
+                <span>Your Reservations</span>
               </div>
             </div>
           </a>
@@ -91,7 +82,7 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>About</span>
+                <span>About Site</span>
               </div>
             </div>
           </a>

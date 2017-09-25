@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resource :user, only: [:create, :show]
     resources :listings, only: [:index, :show, :create]
-    resources :bookings, only: [:create, :show]
+    resources :bookings, only: [:create, :index]
     resources :reviews, only: [:create]
     resources :cities, only: [:index]
   end

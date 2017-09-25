@@ -24,7 +24,7 @@ class Listing < ApplicationRecord
     average = reviews.average(:rating).to_f
 
     if average.to_s.length > 1
-      tenths = average.to_s.slice(2)
+      tenths = average.to_s.slice(2).to_i
       if tenths < 3
         return average.to_s.slice(0,1).to_f
       elsif tenths > 7

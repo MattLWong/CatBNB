@@ -18,6 +18,8 @@ class Api::ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @reviews = Listing.find(params[:id]).reviews
+    @average_rating = Listing.find(params[:id]).average_rating
   end
 
   def create

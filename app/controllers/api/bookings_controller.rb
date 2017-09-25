@@ -4,9 +4,18 @@ class Api::BookingsController < ApplicationController
     render :show
   end
 
-  def show
-    @booking = Booking.find(params[:id])
-    render :show
+  def index
+    @bookings = Booking.all
+
+    if params(:guest_id)
+      @bookings = Booking.where(guest_id: params(:guest_id))
+    end
+
+    if params(:host_id)
+      @bookings = Booking.where(host_id: params(:host_id))
+    end
+    
+    render :index
   end
 
   private

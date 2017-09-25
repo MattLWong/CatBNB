@@ -1,0 +1,13 @@
+div.cover-image {
+  height: 550px;
+  width: 100%;
+}
+
+div.cover-image img {
+  height: 100%;
+}
+
+.listing-container {
+  width: 1050px;
+  margin: 0 auto;
+}
