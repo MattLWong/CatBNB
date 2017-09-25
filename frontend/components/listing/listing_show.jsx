@@ -13,7 +13,9 @@ class ListingShow extends React.Component{
     return(
       <div>
         Listing Show
+        <img class="background"></img>
       </div>
+
     )
   }
 }
