@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewIndexItem from './review_index_item';
 import BookingBoxContainer from './booking_box/booking_box_container';
+import Stars from '../util/stars';
 
 class ListingShow extends React.Component{
   constructor(props) {
@@ -15,6 +16,25 @@ class ListingShow extends React.Component{
     this.props.fetchListing(this.props.listingId)
   }
 
+  renderStyle(bool) {
+    if (bool) {
+      return {
+        textDecoration: "line-through",
+        fontWeight: 300
+      }
+    } else {
+      return { fontWeight: "500"}
+    }
+  }
+
+  renderRule(bool, rule) {
+    if (bool) {
+      return <span>{rule}</span>
+    }
+    else {
+
+    }
+  }
 
 
   returnState(zipcode) {
@@ -35,7 +55,8 @@ class ListingShow extends React.Component{
             <ReviewIndexItem
               key={index}
               index={index}
-              review={item} />
+              review={item}
+              />
           ))}
         </ul>
       </div>
@@ -50,61 +71,108 @@ class ListingShow extends React.Component{
       this.returnState(listing.zip);
     }
     if (listing) {
+      let coverStyle = {
+        backgroundImage: `url(${listing.cover_img_url})`
+      }
+
+
+
+
       return(
-        <div>
-          <div className="cover-image">
-            <img src={listing.cover_img_url}></img>
+
+        <div className="listing-wrapper">
+          <div className="cover-image-div-1">
+            <div className="cover-image-div-2">
+              <div className="cover-image-div-3">
+                <span className="cover-image-span-1">
+                  <span className="cover-image-span-2">
+                    <div className="cover-image-div-4">
+                      <div
+                        className="cover-image-div-5"
+                        style={ coverStyle }>
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
           <div className='listing-container'>
-            <BookingBoxContainer/>
-            <div className="left-column-info">
-              <div className="hero">
-                <div className="title">
+            <div className="left-column">
+              <div className="listing-header">
+                <div className="listing-title">
                   <h1>{listing.title}</h1><br/>
-                  <span>{this.state.city}&nbsp;·&nbsp;{listing.average_rating}</span>
+                  <span>{this.state.city}&nbsp;·&nbsp;<div className="stars-17"><Stars
+                    num={listing.average_rating.toString()}/></div> {listing.average_rating_precise}</span>
                 </div>
-
-                <div className="host-profile">
-                  <img></img>
-                  <span>{listing.host_id}</span>
+                <div className="host-profile-1">
+                  <div className="host-profile-2">
+                    <div className="host-profile-3">
+                      <div className='host-profile-4'>
+                        <div className="host-profile-5">
+                          <a className="host-profile-picture">
+                            <img src={listing.host_image_url}></img>
+                          </a>
+                        </div>
+                        <a className="host-anchor">{listing.host_first_name}</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="about-listing">
-                <h5>About this listing</h5>
+              <div className="about-space">
+                <h5>The space</h5>
                 <h6>{listing.description}</h6>
               </div>
 
 
-              <div className='amentities'>
-                <h4>Amenities</h4>
-                <div className='amenities-col-1'>
-                  <span>Deluxe Bed</span>
-                  <span>House Dog</span>
-                  <span>Gourmet Meals</span>
-                  <span>Free Grooming</span>
+              <div className='about-amenities'>
+                <h5>Amenities</h5>
+                <div className='amenities-col-1 amenities'>
+                  <span
+                    style={ this.renderStyle(listing.deluxe_bed) }
+                    >Deluxe Bed</span>
+                  <span
+                    style={ this.renderStyle(listing.house_dog_friend) }>House Dog</span>
+                  <span
+                    style={ this.renderStyle(listing.gourmet_meals) }>Gourmet Meals</span>
+                  <span
+                    style={ this.renderStyle(listing.free_grooming) }>Free Grooming</span>
                 </div>
-                <div className='amenities-col-2'>
-                  <span>Maze Playground</span>
-                  <span>Air Conditioning</span>
-                  <span>Laser Tag</span>
-                  <span>Natural Light</span>
-                  <span>Cuddling Partner</span>
+                <div className='amenities-col-2 amenities'>
+                  <span
+                    style={ this.renderStyle(listing.maze_playground) }>Maze Playground</span>
+                  <span
+                    style={ this.renderStyle(listing.air_conditioning) }>Air Conditioning</span>
+                  <span
+                    style={ this.renderStyle(listing.laser_tag) }>Laser Tag</span>
+                  <span
+                    style={ this.renderStyle(listing.natural_light) }>Natural Light</span>
+                  <span
+                    style={ this.renderStyle(listing.cuddling_partner) }>Cuddling Partner</span>
                 </div>
               </div>
               <div className='house-rules'>
-                <div className='rules-col-1'>
-                  <span>Flea-free</span>
-                  <span>Vaccinated</span>
-                  <span>No Indoor Peeing</span>
-                  <span>No Shedding</span>
-                  <span>No Excessive Meowing</span>
+                <h5>House Rules</h5>
+                <div className='rules'>
+                  {this.renderRule(listing.flea, "No fleas")}
+                  {this.renderRule(listing.vaccinated, "Must be vaccinated")}
+                  {this.renderRule(listing.peeing, "No indoor peeing/pooping")}
+                  {this.renderRule(listing.shedding, "No shedding")}
+                  {this.renderRule(listing.meowing, "No excessive meowing")}
+                  {this.renderRule(listing.spay_neuter, "Must be spayed/neutered")}
                 </div>
               </div>
 
-              <h2>{listing.reviews.length} Reviews</h2>
-              <button>Write a Review</button>
-              {this.renderReviews()}
+              <div className='reviews'>
+                <h3>{listing.reviews.length} Reviews <div className="stars-28">
+                  <Stars
+                    num={listing.average_rating.toString()}/>
+                </div></h3>
+                <button>Write a Review</button>
+                {this.renderReviews()}
+              </div>
             </div>
           </div>
 
@@ -112,7 +180,7 @@ class ListingShow extends React.Component{
       )
     } else {
       return(
-        <div>
+        <div className='loading-gif'>
           <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
 
           </img>

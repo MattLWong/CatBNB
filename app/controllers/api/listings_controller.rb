@@ -17,9 +17,11 @@ class Api::ListingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find(params[:id])
-    @reviews = Listing.find(params[:id]).reviews
-    @average_rating = Listing.find(params[:id]).average_rating
+    listing = Listing.find(params[:id])
+    @listing = listing
+    @reviews = listing.reviews
+    @average_rating = listing.average_rating
+    @average_rating_precise = listing.average_rating_precise
   end
 
   def create

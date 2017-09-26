@@ -1,13 +1,186 @@
-div.cover-image {
-  height: 550px;
-  width: 100%;
+.loading-gif {
+  height: 250px;
+  width: 250px;
+  margin: auto auto;
 }
 
-div.cover-image img {
-  height: 100%;
+div.cover-image-div-3 {
+  position: relative;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+div.cover-image-div-5 {
+  height: 561px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .listing-container {
-  width: 1050px;
+  max-width: 1080px;
+  padding-right: 24px;
+  padding-left: 24px;
   margin: 0 auto;
+}
+
+.left-column {
+  padding-right: 400px;
+}
+
+.listing-header {
+  margin-top: 24px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 18px;
+}
+
+.listing-header:after {
+  content: "";
+  background: green;
+  display: block;
+  clear: left;
+}
+
+.listing-title {
+  width: 83.33333%;
+  float: left;
+}
+
+.host-profile-1 {
+  float: left;
+  width: 16.6666664%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.host-profile-2 {
+  margin-top: 12px;
+}
+
+.host-profile-3 {
+  color: #767676;
+  text-align: center;
+}
+
+.host-profile-4 {
+  margin-bottom: 6px;
+  display: block;
+  text-align: center;
+}
+
+.host-profile-5 {
+  display: inline-block;
+  position: relative;
+}
+
+a.host-profile-picture {
+  backface-visibility: hidden;
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  overflow: hidden;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.host-profile-picture img {
+  vertical-align: middle;
+  height: 80px;
+  width: 80px;
+}
+
+.host-anchor {
+  font-size: 15px;
+  line-height: 18px;
+  color: inherit;
+}
+
+.stars-17 {
+  display: inline-block;
+}
+
+.stars-17 img {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+}
+
+
+div.listing-title h1 {
+  font-size: 38px;
+  font-weight: 800;
+}
+
+.stars-rating {
+  display: inline;
+}
+
+.about-space, .about-amenities, .house-rules {
+  padding-bottom: 18px;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 18px;
+}
+
+.about-space h5 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.about-space h6 {
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.about-amenities h5 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.amenities-col-1, .amenities-col-2 {
+  float: left;
+  width: 50%;
+}
+
+.amenities span {
+  display: block;
+  padding-bottom: 10px;
+}
+
+.about-amenities:after {
+  content: "";
+  background: green;
+  display: block;
+  clear: left;
+}
+
+.house-rules h5 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.rules span {
+  display: block;
+  padding-bottom: 10px;
+}
+
+.reviews h3 {
+  padding-top: 20px;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.stars-28 {
+  display: inline-block;
+}
+
+.stars-28 img {
+  height: 21px;
+  width: 21px;
+  display: inline-block;
 }

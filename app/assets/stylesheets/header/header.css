@@ -81,6 +81,7 @@ input.search-bar {
 
 .cities-search-results {
   position: absolute;
+  z-index: 5;
 }
 
 .cities-search-results ul {
@@ -88,8 +89,8 @@ input.search-bar {
 }
 
 .cities-search-results li {
-  padding: 10px;
-  background-color: rgba(190, 190, 218, 0.5);
+  padding: 13px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .cities-search-results li:hover {

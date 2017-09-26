@@ -20,6 +20,10 @@ class Listing < ApplicationRecord
   foreign_key: :listing_id,
   class_name: :Review
 
+  def average_rating_precise
+    return reviews.average(:rating).to_s.slice(0,4)
+  end
+
   def average_rating
     average = reviews.average(:rating).to_f
 
