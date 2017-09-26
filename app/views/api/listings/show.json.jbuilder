@@ -6,6 +6,7 @@ json.reviews @reviews do |review|
   json.guest_id review.guest_id
   json.guest_img_url review.guest.image_url
   json.first_name review.guest.first_name
+  json.date review.created_at
 end
 
 json.average_rating @average_rating

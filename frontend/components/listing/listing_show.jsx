@@ -50,15 +50,13 @@ class ListingShow extends React.Component{
   renderReviews() {
     return(
       <div className='reviews'>
-        <ul>
-          {this.props.listing.reviews.map( (item, index) => (
-            <ReviewIndexItem
-              key={index}
-              index={index}
-              review={item}
-              />
-          ))}
-        </ul>
+        {this.props.listing.reviews.map( (item, index) => (
+          <ReviewIndexItem
+            key={index}
+            index={index}
+            review={item}
+            />
+        ))}
       </div>
     )
   }
@@ -74,9 +72,6 @@ class ListingShow extends React.Component{
       let coverStyle = {
         backgroundImage: `url(${listing.cover_img_url})`
       }
-
-
-
 
       return(
 
@@ -170,7 +165,7 @@ class ListingShow extends React.Component{
                   <Stars
                     num={listing.average_rating.toString()}/>
                 </div></h3>
-                <button>Write a Review</button>
+              <button className="write-a-review">Write a Review</button>
                 {this.renderReviews()}
               </div>
             </div>
@@ -180,7 +175,7 @@ class ListingShow extends React.Component{
       )
     } else {
       return(
-        <div className='loading-gif'>
+        <div className='loading-gify'>
           <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif">
 
           </img>
