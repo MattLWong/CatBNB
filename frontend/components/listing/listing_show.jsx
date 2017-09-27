@@ -1,6 +1,5 @@
 import React from 'react';
 import ReviewIndexItem from './review_index_item';
-import BookingBoxContainer from './booking_box/booking_box_container';
 import Stars from '../util/stars';
 
 class ListingShow extends React.Component{
@@ -8,8 +7,12 @@ class ListingShow extends React.Component{
     super(props)
     this.state = {
       address: null,
-      counter: 1
+      counter: 1,
+      check_in: "",
+      check_out: "",
+      guests: "1"
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -31,8 +34,23 @@ class ListingShow extends React.Component{
     if (bool) {
       return <span>{rule}</span>
     }
-    else {
+  }
 
+  handleSubmit() {
+    const booking = {booking:
+      {host_id: this.props.listing.host_id,
+      guest_id: this.props.guestId,
+      listing_id: this.props.listingId,
+      check_in: this.state.check_in,
+      check_out: this.state.check_out}
+    }
+    this.props.bookListing({booking});
+    this.props.history.push('/trips')
+  }
+
+  update(property) {
+    return e => {
+      this.setState({ [property]: e.currentTarget.value })
     }
   }
 
@@ -63,7 +81,7 @@ class ListingShow extends React.Component{
 
 
   render() {
-    const { listing } = this.props
+    const { listing } = this.props;
 
     if (listing && this.state.counter > 0) {
       this.returnState(listing.zip);
@@ -72,9 +90,8 @@ class ListingShow extends React.Component{
       let coverStyle = {
         backgroundImage: `url(${listing.cover_img_url})`
       }
-
+      debugger;
       return(
-
         <div className="listing-wrapper">
           <div className="cover-image-div-1">
             <div className="cover-image-div-2">
@@ -93,6 +110,66 @@ class ListingShow extends React.Component{
             </div>
           </div>
           <div className='listing-container'>
+            <div className='book-now'>
+              <div className="book-now-relative">
+                <div className="book-now-price-container">
+                  <div className="book-now-price">
+                    <span className="dollars">${listing.price}</span>&nbsp;<span className="per-night">per night</span>
+                  </div>
+                </div>
+                <div className="book-now-container">
+                  <form onSubmit={this.handleSubmit} id="booking-form">
+                    <div className="check-in-out-guests">
+                      <div className="check-in-out">
+                        <div className="check-in">
+                          <label>
+                            Check In
+                            <input
+                              id="booking-form"
+                              type="date"
+                              value={this.state.check_in}
+                              onChange={this.update("check_in").bind(this)}
+                              />
+                          </label>
+                        </div>
+                        <div className='check-out'>
+                          <label>
+                            Check Out
+                            <input
+                              id="booking-form"
+                              type="date"
+                              value={this.state.check_out}
+                              onChange={this.update("check_out").bind(this)}
+                              />
+                          </label>
+                        </div>
+                      </div>
+
+                      <div className="guests">
+                        <label>
+                          Guests <br/>
+                            <select name="guests" form="booking-form" onChange={this.update("guests").bind(this)}>
+                              <option value="1" defaultValue>1 Cat</option>
+                              <option value="2">2 Cats</option>
+                              <option value="3">3 Cats</option>
+                              <option value="4">4 Cats</option>
+                            </select>
+                        </label>
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      form="booking-form"
+                      className="book-now-submit">
+                      Book Now
+                    </button>
+                  </form>
+                  <div className="never-be-charged">
+                    <span className='credit-card'>Your credit card will not be charged</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="left-column">
               <div className="listing-header">
                 <div className="listing-title">

@@ -12,7 +12,7 @@ class Home extends React.Component {
         <div className="gif-background">
           <div className="hero">
             <h1>WELCOME TO CATBNB!</h1>
-            <h3>Find the best place for your companion when you're off exploring the world</h3>
+            <h3>Find the right place for your companion when you're off exploring the world</h3>
           </div>
         </div>
         <ReservationTool />

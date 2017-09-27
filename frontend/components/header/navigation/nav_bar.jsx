@@ -64,7 +64,7 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>Your Reservations</span>
+                <span>Trips</span>
               </div>
             </div>
           </a>
@@ -73,7 +73,7 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>Messages</span>
+                <span>Visitors</span>
               </div>
             </div>
           </a>
@@ -82,7 +82,7 @@ class NavBar extends React.Component {
           <a>
             <div>
               <div>
-                <span>About Site</span>
+                <span>{this.props.first_name}</span>
               </div>
             </div>
           </a>
@@ -97,24 +97,6 @@ class NavBar extends React.Component {
               </div>
             </div>
           </a>
-          <div className='profile-drop-div'>
-            <ul className='tree'>
-              <li>
-                <Link to={`/users/edit`}>
-                  <div className="profile-drop-div-4">
-                    <span>Edit Profile</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <a onClick={this.props.logout}>
-                  <div>
-                    <span>Log Out</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
         </li>
       </ul>
     )

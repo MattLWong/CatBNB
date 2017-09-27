@@ -14,7 +14,7 @@ class Api::BookingsController < ApplicationController
     if params(:host_id)
       @bookings = Booking.where(host_id: params(:host_id))
     end
-    
+
     render :index
   end
 

@@ -20,7 +20,7 @@ class FilterForm extends React.Component {
   render() {
     return (
       <div className="filter-div">
-        <span>Filters</span>
+        <h5 className='filters-title'>Filters</h5>
         <form className="filter-form">
           <label>
             Check In
@@ -34,13 +34,7 @@ class FilterForm extends React.Component {
               type="date"
               onChange={this.handleChange('checkout')}/>
           </label>
-          <select
-            onChange={this.handleChange('minBeds')}>
-            <option value="1">1 Cat</option>
-            <option value="2">2 Cat</option>
-            <option value="3">3 Cat</option>
-            <option value="4">4 Cat</option>
-          </select>
+          <br/>
           <label>
             Min
             <input
@@ -55,6 +49,13 @@ class FilterForm extends React.Component {
               value={this.state.maxPrice}
               onChange={this.handleChange("maxPrice")}/>
           </label>
+          <select
+            onChange={this.handleChange('minBeds')}>
+            <option value="1">1 Cat</option>
+            <option value="2">2 Cat</option>
+            <option value="3">3 Cat</option>
+            <option value="4">4 Cat</option>
+          </select>
         </form>
       </div>
     )

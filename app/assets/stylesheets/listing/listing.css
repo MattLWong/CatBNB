@@ -2,6 +2,16 @@ iframe {
   height: 200px;
 }
 
+.loading-gify {
+  position: relative;
+  height: 100px;
+}
+.loading-gify img {
+  width: 100px;
+  position: absolute;
+  left: 48%;
+}
+
 div.cover-image-div-3 {
   position: relative;
   width: 100%;
@@ -9,7 +19,7 @@ div.cover-image-div-3 {
 }
 
 div.cover-image-div-5 {
-  height: 561px;
+  height: 520px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -20,6 +30,7 @@ div.cover-image-div-5 {
   padding-right: 24px;
   padding-left: 24px;
   margin: 0 auto;
+  position: relative;
 }
 
 .left-column {
@@ -27,10 +38,11 @@ div.cover-image-div-5 {
 }
 
 .listing-header {
-  margin-top: 24px;
+  padding-top: 24px;
   margin-bottom: 18px;
   border-bottom: 1px solid lightgrey;
   padding-bottom: 18px;
+  float: left;
 }
 
 .listing-header:after {
@@ -90,6 +102,7 @@ a.host-profile-picture {
 }
 
 .host-anchor {
+  padding-top: 8px;
   font-size: 15px;
   line-height: 18px;
   color: inherit;
@@ -124,7 +137,8 @@ div.listing-title h1 {
 .about-space h5 {
   font-size: 18px;
   font-weight: 500;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 .about-space h6 {
@@ -148,6 +162,7 @@ div.listing-title h1 {
 .amenities span {
   display: block;
   padding-bottom: 10px;
+  font-size: 16px;
 }
 
 .about-amenities:after {
@@ -165,6 +180,7 @@ div.listing-title h1 {
 .rules span {
   display: block;
   padding-bottom: 10px;
+  font-size: 16px;
 }
 
 .reviews h3 {

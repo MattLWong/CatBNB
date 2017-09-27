@@ -24,6 +24,10 @@ class Listing < ApplicationRecord
     return reviews.average(:rating).to_s.slice(0,4)
   end
 
+  def review_count
+    reviews.count
+  end
+
   def average_rating
     average = reviews.average(:rating).to_f
 

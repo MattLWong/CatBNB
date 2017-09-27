@@ -1,0 +1,104 @@
+.book-now {
+  position: absolute;
+  width: 356px;
+  height: 295px;
+  border: 1px solid lightgrey;
+  left: 700px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.book-now-relative {
+  position: relative;
+}
+
+.book-now-price-container {
+  position: absolute;
+  width: 356px;
+  height: 50px;
+  z-index: 10;
+  top: -51px;
+  background-color: rgba(60, 63, 64, 0.9);
+  left: -1px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.book-now-price {
+  position: absolute;
+  top: 11px;
+  width: 320px;
+  height: 25px;
+  margin-left: 16px;
+}
+
+.book-now-container {
+  padding: 20px;
+  height: 295px;
+}
+
+.dollars {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 1.1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: inline;
+}
+
+.per-night {
+  font-size: 15px;
+  font-weight: 200;
+  color: #ffffff;
+  display: inline;
+  line-height: 18px;
+  letter-spacing: 1px;
+  padding-left: 3px;
+}
+
+.check-in, .check-out {
+  width: 50%;
+  margin: 0;
+  display: inline-block;
+}
+
+.check-in-out input {
+  height: 35px;
+  margin-top: 8px;
+}
+
+#booking-form label {
+  font-size: 16px;
+}
+
+.guests {
+  margin-top: 12px;
+}
+
+.credit-card {
+  font-weight: 200;
+}
+
+#booking-form select {
+  width: 100%;
+  height: 35px;
+}
+
+#booking-form {
+  margin-bottom: 8px;
+}
+
+.book-now-submit {
+  width: 100%;
+  margin-top: 18px;
+  height: 30px;
+}
+
+.never-be-charged {
+  display: block;
+  margin: 18px auto 0px;
+  width: 75%;
+}

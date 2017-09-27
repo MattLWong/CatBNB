@@ -27,7 +27,6 @@ class ReservationTool extends React.Component {
 
         <label>
           Check-in
-
         </label>
         <label>
           Check-in

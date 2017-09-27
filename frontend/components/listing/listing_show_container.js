@@ -6,12 +6,14 @@ import ListingShow from './listing_show';
 const mapStateToProps = (state, {match}) => {
   return({
     listingId: match.params.listingId,
-    listing: state.listing[parseInt(match.params.listingId)]
+    listing: state.listing[parseInt(match.params.listingId)],
+    guestId: state.session.currentUser.id,
   })
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchListing: (id) => dispatch(fetchListing(id))
+  fetchListing: (id) => dispatch(fetchListing(id)),
+  bookListing: (info) => dispatch(createBooking(info))
 })
 
 export default connect(
