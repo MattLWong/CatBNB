@@ -1,0 +1,16 @@
+.featured-destinations {
+  width: 100%;
+}
+
+.featured-destination-item {
+  width: 20%;
+  display: inline-block;
+}
+.featured-destination-image {
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

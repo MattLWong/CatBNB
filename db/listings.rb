@@ -151,7 +151,7 @@ module ListingsFactory
 
 # North San Francisco
 
-  5.times do
+  10.times do
     lat = 37.788 + (rand(100).to_f/100 * 0.017)
     lng = -122.398 - (rand(100).to_f/100 * 0.0605)
 
@@ -159,7 +159,7 @@ module ListingsFactory
       title: "#{ADJECTIVES.shuffle[0]} #{TYPES.shuffle[0]} ready for a #{CAT.shuffle[0]}",
       description: "#{DESCRIPTIONS.shuffle[0]}",
       host_id: (rand(20)),
-      price: 18 + rand(65),
+      price: 25 + rand(40),
       street_address: "reverse geocode",
       city: "San Francisco",
       zip: 94123,
@@ -188,7 +188,7 @@ module ListingsFactory
 
   # San Francisco
 
-  20.times do
+  40.times do
     lat = 37.7019 + (rand(100).to_f/100 * 0.089)
     lng = -122.398 - (rand(100).to_f/100 * 0.108)
 

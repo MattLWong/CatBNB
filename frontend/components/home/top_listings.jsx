@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TopHits = props => (
+const TopListings = props => (
   <div>
     Explore Top Hits
   </div>
 )
 
-export default TopHits;
+export default TopListings;

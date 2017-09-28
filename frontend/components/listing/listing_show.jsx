@@ -90,7 +90,6 @@ class ListingShow extends React.Component{
       let coverStyle = {
         backgroundImage: `url(${listing.cover_img_url})`
       }
-      debugger;
       return(
         <div className="listing-wrapper">
           <div className="cover-image-div-1">

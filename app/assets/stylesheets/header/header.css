@@ -80,21 +80,27 @@ input.search-bar {
 }
 
 .cities-search-results {
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   position: absolute;
   z-index: 5;
 }
 
-.cities-search-results ul {
-  padding-left: 34px;
+.cities-search-results li:first-child {
+  border-top: 2px solid #198C82;
 }
 
 .cities-search-results li {
+  border-bottom: 1px solid lightgrey;
   padding: 13px;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding-left: 34px;
+  width: 549px;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .cities-search-results li:hover {
-  background-color: #b6fcd5;
+  background-color: #FECED0;
 }
 
 .loupe-div {
@@ -139,13 +145,17 @@ ul.nav-ul > li > a, ul.nav-ul button {
   cursor: pointer;
 }
 
-ul.nav-ul a > div , ul.nav-ul button > div {
+.vertical-align-me {
   height: 100%;
   vertical-align: middle;
 }
 
-ul.nav-ul a > div:hover , ul.nav-ul button > div:hover {
+.hover-me-grey:hover {
   border-bottom: 2px solid #767676;
+}
+
+.hover-me-grey span {
+  letter-spacing: .2px;
 }
 
 ul.nav-ul a > div > div, ul.nav-ul button > div > div {
