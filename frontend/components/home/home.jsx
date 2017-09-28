@@ -45,20 +45,32 @@ class Home extends React.Component {
             <h3>Find the right place for your companion when you're off exploring the world</h3>
           </div>
         </div>
-        <ReservationTool />
 
-        <TopListings />
-          <div className="featured-destinations">
-            <h2>Featured destinations</h2>
-            <div className="featured-destinations-container">
-              {this.cities.map( (city, idx) => <FeaturedDestinationItem
-                key={idx}
-                city={city}
-                link={this.cities_pictures[idx]}
-                latlng={this.cities_location[idx]}
-              />)}
+        <div className='body'>
+          <ReservationTool />
+          <TopListings />
+          <div className="f-d-1">
+            <div className='f-d-2'>
+              <div className='f-d-3'>
+                <h2 className='f-d-h2'>
+                  Featured destinations
+                </h2>
+                <div className='f-d-4'>
+                  <div className='f-d-5'>
+                    <div className='f-d-6'>
+                      {this.cities.map( (city, idx) => <FeaturedDestinationItem
+                        key={idx}
+                        city={city}
+                        link={this.cities_pictures[idx]}
+                        latlng={this.cities_location[idx]}
+                      />)}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     )
   }
