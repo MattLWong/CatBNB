@@ -1,24 +1,5 @@
-.featured-destinations {
-  width: 100%;
-}
-
-.featured-destination-item {
-  width: 20%;
-  display: inline-block;
-}
-.featured-destination-image {
-  padding-left: 8px;
-  padding-right: 8px;
-  height: 100%;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-
-
 .f-d-3 {
-  margin-top: 48px;
+  margin-top: 30px;
   margin-bottom: 48px;
 }
 
@@ -103,4 +84,6 @@
   display: inline;
   padding-top: 0px;
   padding-bottom: 0px;
+  color: #484848;
+  font-size: 16px;
 }

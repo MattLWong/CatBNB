@@ -39,7 +39,7 @@ class TopListings extends React.Component {
     } else {
       return(
         <div className='t-h-3'>
-          <h2 className='t-h-h4'>Explore listings</h2>
+          <h2 className='t-h-h4'>Explore popular listings</h2>
           <div className='t-h-4'>
             <div className='t-h-5'>
               <div className='t-h-6'>

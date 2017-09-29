@@ -19,7 +19,7 @@
 }
 
 .hero h1 {
-  font-size: 65px;
+  font-size: 55px;
   color: #fd5c63;
   font-weight: bold;
 }
@@ -32,8 +32,8 @@
 }
 
 .body {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 6%;
+  padding-right: 6%;
 }
 
 .footer {
