@@ -22,7 +22,7 @@ class ReservationTool extends React.Component {
           <input
             type="text"
             className="r-t-search"
-            placeholder="Destination, city, or address"
+            placeholder="Search local destinations"
             value={this.state.search_string}
             onChange={this.handleChange("search_string")}
             />

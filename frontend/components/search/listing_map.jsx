@@ -44,7 +44,7 @@ class ListingMap extends React.Component {
     }
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     this.registerListeners();
-    this.props.updateFilter('minBeds', 1);
+    // this.props.updateFilter('minBeds', 1);
   }
 
   componentDidUpdate() {
@@ -63,6 +63,7 @@ class ListingMap extends React.Component {
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west } };
+        console.log('map has idled');
       this.props.updateFilter('bounds', bounds);
     });
   }

@@ -6,33 +6,58 @@ class FilterForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       minPrice: 1,
-      maxPrice: 150
+      maxPrice: 150,
+      check_in: "",
+      check_out: "",
+      minBeds: 1
     }
   }
 
   handleChange(filter) {
     return e => {
-      this.setState({[filter]: e.currentTarget.value});
-      return this.props.updateFilter(filter, e.currentTarget.value)
+        this.setState({[filter]: e.currentTarget.value});
+    }
+
+  }
+
+  updateFilter(filter) {
+    return e => {
+      if (this.state.minPrice == "") {
+        this.setState({minPrice: "0"});
+        this.props.updateFilter(filter, "0");
+      } else if (this.state.maxPrice == "") {
+        this.setState({maxPrice: "150"});
+        this.props.updateFilter(filter, "150");
+      } else {
+        this.props.updateFilter(filter, this.state[filter])
+      }
+    }
+  }
+
+  handleImmediateChange(filter) {
+    return e => {
+      this.setState({[filter]: e.currentTarget.value}, function() {this.props.updateFilter(filter, this.state.minBeds)})
     }
   }
 
   render() {
     return (
       <div className="filter-div">
-        <h5 className='filters-title'>Filters</h5>
-        <form className="filter-form">
+        <form className="filter-form"
+          >
           <label>
             Check In
             <input
               type="date"
-              onChange={this.handleChange("checkin")}/>
+              onChange={this.handleChange("check_in")}
+              />
           </label>
           <label>
             Check Out
             <input
               type="date"
-              onChange={this.handleChange('checkout')}/>
+              onChange={this.handleChange('checkout')}
+              />
           </label>
           <br/>
           <label>
@@ -40,17 +65,19 @@ class FilterForm extends React.Component {
             <input
               type="number"
               value={this.state.minPrice}
-              onChange={this.handleChange("minPrice")}/>
+              onChange={this.handleChange("minPrice")}
+              onBlur={this.updateFilter('minPrice')}/>
           </label>
           <label>
             Max
             <input
               type="number"
               value={this.state.maxPrice}
-              onChange={this.handleChange("maxPrice")}/>
+              onChange={this.handleChange("maxPrice")}
+              onBlur={this.updateFilter('maxPrice')}/>
           </label>
           <select
-            onChange={this.handleChange('minBeds')}>
+            onChange={this.handleImmediateChange('minBeds')}>
             <option value="1">1 Cat</option>
             <option value="2">2 Cat</option>
             <option value="3">3 Cat</option>

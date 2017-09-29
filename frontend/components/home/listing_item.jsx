@@ -24,7 +24,7 @@ const TopListingItem = ({home}) => {
             </div>
             <div className='t-h-10-2'>
               <div className='t-h-13-2-1'>
-                  ${home.price}&nbsp;&nbsp;{home.title}
+                  <span className='t-h-14-span'>${home.price}</span>&nbsp;&nbsp;{home.title}
               </div>
               <div className='t-h-13-2-2'>
                 <span className='t-h-num-cats-span'>{home.max_cats}&nbsp;Cats</span>

@@ -12,3 +12,7 @@ export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
   return dispatch(fetchListings(getState().filters));
 }
+
+export const updateFilters = (filters, values) => (dispatch, getState) => {
+  
+}
