@@ -22,15 +22,15 @@
   margin-bottom: 48px;
 }
 
-.f-d-4 {
-  position: relative;
-}
-
 .f-d-h2 {
   font-size: 32px;
   line-height: 40px;
   font-weight: 700;
   margin-bottom: 24px;
+}
+
+.f-d-4 {
+  position: relative;
 }
 
 .f-d-5 {
