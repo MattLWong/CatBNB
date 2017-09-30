@@ -6,6 +6,7 @@ import FiltersReducer from './filters_reducer';
 import ListingsReducer from './listings_reducer';
 import ListingReducer from './listing_reducer';
 import BookingsReducer from './bookings_reducer';
+// import ListingsBooleanReducer from './listings_boolean_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -14,6 +15,7 @@ const RootReducer = combineReducers({
   listing: ListingReducer,
   listings: ListingsReducer,
   bookings: BookingsReducer
+  // listings_boolean: ListingsBooleanReducer
 });
 
 export default RootReducer;

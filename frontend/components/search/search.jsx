@@ -4,16 +4,19 @@ import FilterForm from './filter_form';
 import ListingIndex from './listing_index';
 import ListingMap from './listing_map';
 
-const Search = ({updateFilter, listings, lat, lng, minPrice, maxPrice, minBeds}) => (
+const Search = ({updateFilter, listings, lat, lng, minPrice, maxPrice, minBeds, lb}) => (
   <div className="search">
     <div className="left-half">
-        <FilterForm
-          updateFilter={updateFilter}
-          minPrice={minPrice}
-          maxPrice={maxPrice}
-          minBed={minBeds}/>
-        <ListingIndex
-          listings={listings}/>
+      <FilterForm
+        updateFilter={updateFilter}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
+        minBed={minBeds}/>
+      <ListingIndex
+        listings={listings}/>
+    </div>
+    <div className="position-me">
+
     </div>
     <div className="right-half">
       <ListingMap

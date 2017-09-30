@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { withRouter } from 'react-router-dom';
-
 import MarkerManager from '../../util/marker_manager';
 
 const getCoordsObj = latLng => ({
@@ -28,6 +27,7 @@ class ListingMap extends React.Component {
   }
 
   componentDidMount() {
+    $('.position-me').css('display', 'block');
     const map = this.refs.map;
     this.map = null;
     if (this.props.lat) {
@@ -47,6 +47,10 @@ class ListingMap extends React.Component {
     // this.props.updateFilter('minBeds', 1);
   }
 
+  componentWillUpdate() {
+    $('.position-me').css('display', 'block');
+  }
+
   componentDidUpdate() {
     if (this.props.listings) {
       this.MarkerManager.updateMarkers(this.props.listings);
@@ -58,12 +62,15 @@ class ListingMap extends React.Component {
   }
 
   registerListeners() {
+    google.maps.event.addListener(this.map, 'mousedown', () => {
+      $('.position-me').css('display', 'block');
+    })
     google.maps.event.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
-        southWest: { lat: south, lng: west } };
-        console.log('map has idled');
+        southWest: { lat: south, lng: west }
+      };
       this.props.updateFilter('bounds', bounds);
     });
   }

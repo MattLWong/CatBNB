@@ -1,0 +1,9 @@
+.position-me {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: calc(100vh - 65px);
+  width: 59.2%;
+  background-color: rgba(0,0,0,0.25);
+}
