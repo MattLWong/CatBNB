@@ -5,17 +5,20 @@ class Api::BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
-
-    if params(:guest_id)
-      @bookings = Booking.where(guest_id: params(:guest_id))
+    byebug
+    if params[:guest_id]
+      @bookings = Booking.where(guest_id: params[:guest_id])
+      render :index
+      return
     end
 
-    if params(:host_id)
-      @bookings = Booking.where(host_id: params(:host_id))
+    if params[:host_id]
+      @bookings = Booking.where(host_id: params[:host_id])
+      render :index
+      return
     end
 
-    render :index
+    return
   end
 
   private

@@ -24,3 +24,8 @@ import { fetchListing } from './actions/listing_actions';
 window.fetchListing = fetchListing;
 import {fetchTopPicks} from './util/top_picks_util';
 window.fetchTopPicks = fetchTopPicks;
+
+// import { fetchGuests, fetchTrips, createBooking }
+import {createBooking} from './util/booking_api_util'
+
+window.createBooking = createBooking

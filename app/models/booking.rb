@@ -19,6 +19,7 @@ class Booking < ApplicationRecord
   class_name: :Listing
 
   def start_comes_first
+    byebug
     return if check_in < check_out
     errors[:check_in] << "must come before end date"
     errors[:check_out] << "must come after start date"

@@ -16,7 +16,6 @@ class SearchBar extends React.Component {
     const that = this;
     const node = document.getElementsByClassName("search-bar")[0];      node.addEventListener('keydown', function(event) {
       if (event.key === "Enter") {
-        debugger;
         if (that.state.search_string.length > 0) {
           let stringArray = that.state.search_string.split(" ");
           let searchString;

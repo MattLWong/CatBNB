@@ -14,6 +14,7 @@ import Header from './header/header';
 import HomeContainer from './home/home_container';
 import SearchContainer from './search/search_container';
 import ListingShowContainer from './listing/listing_show_container';
+// import TripsContainer from './trips/trips_container';
 
 const App = () => (
   <div>
@@ -22,6 +23,7 @@ const App = () => (
       <Route exact path="/" component={HomeContainer} />
       <Route path="/search" component={SearchContainer} />
       <Route path="/listings/:listingId" component={ListingShowContainer} />
+
     </main>
     <div className="footer">
 
@@ -31,5 +33,4 @@ const App = () => (
 
 export default App;
 
-
-// <img src="/assets/profile-listings/1.jpg"></img>
+// <Route path="/trips" component={TripsContainer}/>

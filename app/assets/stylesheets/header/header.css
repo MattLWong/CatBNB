@@ -87,6 +87,10 @@ input.search-bar {
   z-index: 5;
 }
 
+.cities-search-results ul, .cities-search-results {
+  width: inherit;
+}
+
 .cities-search-results li:first-child {
   border-top: 2px solid #198C82;
 }
@@ -95,7 +99,7 @@ input.search-bar {
   border-bottom: 1px solid lightgrey;
   padding: 13px;
   padding-left: 34px;
-  width: 549px;
+  width: inherit;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -130,6 +134,10 @@ ul.nav-ul li {
   display: table-cell;
 }
 
+ul.nav-ul li:hover, .logo-div-1:hover {
+  background-color: rgba(0,0,0,0.03);
+}
+
 ul.nav-ul > li > a, ul.nav-ul button {
   background: transparent;
   border: none;
@@ -150,8 +158,11 @@ ul.nav-ul > li > a, ul.nav-ul button {
   vertical-align: middle;
 }
 
-.hover-me-grey:hover {
+.nav-ul a:hover {
   border-bottom: 2px solid #767676;
+}
+
+.hover-me-grey:hover {
 }
 
 .hover-me-grey span {
@@ -168,18 +179,18 @@ ul.nav-ul a > div > div, ul.nav-ul button > div > div {
 
 div.profile-pic-div {
   background-color: #F2F2F2;
-  box-shadow: 0 0 0 2px #DBDBDB;
+  box-shadow: 0 0 0 2px lightgrey;
   border-radius: 50%;
   display: inline-block;
   overflow: hidden;
   vertical-align: middle;
-  width: 28px;
-  height: 28px;
+  width: 35px;
+  height: 35px;
 }
 
 #profile-pic {
-  height: 28px;
-  width: 28px;
+  height: 35px;
+  width: 35px;
 }
 
 li.li-profile {
