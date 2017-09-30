@@ -5,15 +5,15 @@ class Api::BookingsController < ApplicationController
   end
 
   def index
-    byebug
+    bookings = Booking.all
     if params[:guest_id]
-      @bookings = Booking.where(guest_id: params[:guest_id])
+      @bookings = bookings.where(guest_id: params[:guest_id])
       render :index
       return
     end
 
     if params[:host_id]
-      @bookings = Booking.where(host_id: params[:host_id])
+      @bookings = bookings.where(host_id: params[:host_id])
       render :index
       return
     end

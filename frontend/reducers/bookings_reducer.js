@@ -11,15 +11,25 @@ const BookingsReducer = (state = nullState, action) => {
   Object.freeze(state)
   switch(action.type) {
     case RECEIVE_TRIPS:
-      const trips = action.trips;
-      return merge({}, state, {trips})
+      let prevGuests = merge({}, state.guests);
+      return {
+        trips: action.trips,
+        guests: prevGuests
+      }
     case RECEIVE_GUESTS:
-      const guests = action.guests;
-      return merge({}, state, {guests})
+    let prevTrips = merge({}, state.trips)
+      return {
+        trips: prevTrips,
+        guests: action.guests
+      }
     case RECEIVE_BOOKING:
-      const booking = {[action.booking.id]: action.booking}
-      const newtrips = merge({}, state.trips, booking)
-      return merge({}, state, trips: newtrips)
+      const booking = {[action.booking.id]: action.booking};
+      const newtrips = merge({}, state.trips, booking);
+      const prevGuests2 = merge({}, state.guests);
+      return {
+        guests: prevGuests2,
+        trips: newtrips
+      }
     default:
       return state;
   }
