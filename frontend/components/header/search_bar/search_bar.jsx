@@ -13,7 +13,39 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    
+    const that = this;
+    const node = document.getElementsByClassName("search-bar")[0];      node.addEventListener('keydown', function(event) {
+      if (event.key === "Enter") {
+        debugger;
+        if (that.state.search_string.length > 0) {
+          let stringArray = that.state.search_string.split(" ");
+          let searchString;
+
+          if (stringArray.length == 1) {
+            searchString = stringArray[0]
+          } else {
+            searchString = stringArray[0];
+            for (let i = 1; i < stringArray.length; i++) {
+              searchString = searchString.concat("+").concat(stringArray[i]);
+            }
+          }
+          $.ajax({
+            method: "GET",
+            url: `https://maps.googleapis.com/maps/api/geocode/json?address=${searchString}&key=AIzaSyCPqFraPsIQpO7RkqgWB4gMxDm4NwxH76A`
+          }).then( res => {
+            if (res.status == "INVALID_REQUEST") {
+              debugger;
+              that.setState({error: "error"})
+            }
+            let lat = res.results[0].geometry.location.lat;
+            let lng = res.results[0].geometry.location.lng;
+            const url = `/search?lat=${lat}&lng=${lng}`;
+            that.clearSearchBar();
+            that.props.history.push(url);
+          })
+        }
+      }
+    });
   }
 
   handleChange(e) {
