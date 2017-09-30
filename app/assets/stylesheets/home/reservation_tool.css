@@ -6,6 +6,11 @@
   border-radius: 3px;
 }
 
+.r-t-2-1 h4 {
+  margin-bottom: 10px;
+  color: brown;
+}
+
 .r-t-2 {
   display: flex;
   justify-content: space-around;
@@ -47,7 +52,7 @@
   background-image: url(http://res.cloudinary.com/mwong9968/image/upload/v1506718802/down_zez7kk.png);
   background-repeat: no-repeat;
   background-size: 24px 24px;
-  background-position-x: 82px;
+  background-position-x: 88%;
   background-position-y: 4px;
 
 }

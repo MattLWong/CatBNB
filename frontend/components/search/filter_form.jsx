@@ -3,14 +3,15 @@ import React from 'react';
 class FilterForm extends React.Component {
   constructor(props){
     super(props)
-    this.handleChange = this.handleChange.bind(this);
+
     this.state = {
       minPrice: 1,
       maxPrice: 150,
       check_in: "",
       check_out: "",
-      minBeds: 1
+      minBeds: this.props.minBeds
     }
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(filter) {
@@ -37,6 +38,12 @@ class FilterForm extends React.Component {
   handleImmediateChange(filter) {
     return e => {
       this.setState({[filter]: e.currentTarget.value}, function() {this.props.updateFilter(filter, this.state.minBeds)})
+    }
+  }
+
+  renderSelected(val) {
+    if (val == this.state.minBeds) {
+      return "selected"
     }
   }
 
@@ -78,10 +85,10 @@ class FilterForm extends React.Component {
           </label>
           <select
             onChange={this.handleImmediateChange('minBeds')}>
-            <option value="1">1 Cat</option>
-            <option value="2">2 Cat</option>
-            <option value="3">3 Cat</option>
-            <option value="4">4 Cat</option>
+            <option value="1" selected={this.renderSelected("1")}>1 Cat</option>
+            <option value="2" selected={this.renderSelected("2")}>2 Cat</option>
+            <option value="3" selected={this.renderSelected("3")}>3 Cat</option>
+            <option value="4" selected={this.renderSelected("4")}>4 Cat</option>
           </select>
         </form>
       </div>

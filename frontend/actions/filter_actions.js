@@ -13,6 +13,6 @@ export const updateFilter = (filter, value) => (dispatch, getState) => {
   return dispatch(fetchListings(getState().filters));
 }
 
-export const updateFilters = (filters, values) => (dispatch, getState) => {
-  
+export const justUpdateFilter = (filter, value) => (dispatch) => {
+  dispatch(changeFilter(filter, value));
 }

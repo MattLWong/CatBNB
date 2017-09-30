@@ -10,8 +10,10 @@ class SearchBar extends React.Component {
       search_string: "",
       counter: 0
     }
+  }
 
-    this.clearSearchBar = this.clearSearchBar.bind(this);
+  componentDidMount() {
+    
   }
 
   handleChange(e) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class ReservationTool extends React.Component {
   constructor(props){
@@ -7,22 +8,76 @@ class ReservationTool extends React.Component {
       search_string: "",
       check_in: "",
       check_out: "",
-      num_cats: 1
+      num_cats: 1,
+      error: ""
     }
+    window.state = this.state;
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(property) {
     return e => this.setState({[property]: e.target.value})
   }
 
+  handleFilterChange(property) {
+    return e => {
+      this.setState({[property]: e.target.value});
+      this.props.updateFilter("minBeds", e.target.value);
+    }
+  }
+
+  handleSubmit() {
+    if(this.state.search_string == "") {
+      this.setState({error: "error"});
+      return
+    }
+    let stringArray = this.state.search_string.split(" ");
+    let searchString;
+
+    if (stringArray.length == 1) {
+      this.setState({error: "no-error"});
+      searchString = stringArray[0]
+    } else {
+      this.setState({error: "no-error"});
+      searchString = stringArray[0];
+      for (let i = 1; i < stringArray.length; i++) {
+        searchString = searchString.concat("+").concat(stringArray[i]);
+      }
+    }
+    $.ajax({
+      method: "GET",
+      url: `https://maps.googleapis.com/maps/api/geocode/json?address=${searchString}&key=AIzaSyCPqFraPsIQpO7RkqgWB4gMxDm4NwxH76A`
+    }).then( res => {
+      if (res.status == "INVALID_REQUEST") {
+        debugger;
+        this.setState({error: "error"})
+      }
+      let lat = res.results[0].geometry.location.lat;
+      let lng = res.results[0].geometry.location.lng;
+      const url = `/search?lat=${lat}&lng=${lng}`;
+      this.props.history.push(url);
+    })
+  }
+
+  renderErrorMessage() {
+    if (this.state.error == 'error') {
+      return(
+        <h4>Search could not be completed. Please enter a valid search address.</h4>
+      )
+    }
+  }
+
   render() {
     return(
       <div className="r-t-1">
-        <form className='r-t-2' id='reservation-tool'>
+        <div className='r-t-2-1'>
+          {this.renderErrorMessage()}
+        </div>
+        <form className='r-t-2' id='reservation-tool' onSubmit={this.handleSubmit}>
           <input
             type="text"
             className="r-t-search"
-            placeholder="Search local destinations"
+            placeholder="Enter city, locale, address"
             value={this.state.search_string}
             onChange={this.handleChange("search_string")}
             />
@@ -45,7 +100,7 @@ class ReservationTool extends React.Component {
             <select
               form="reservation-tool"
               className='r-t-select'
-              onChange={this.handleChange("num_cats")}>
+              onChange={this.handleFilterChange("num_cats")}>
               <option value="1">1 Cat</option>
               <option value="2">2 Cat</option>
               <option value="3">3 Cat</option>
@@ -59,4 +114,4 @@ class ReservationTool extends React.Component {
   }
 }
 
-export default ReservationTool;
+export default withRouter(ReservationTool);

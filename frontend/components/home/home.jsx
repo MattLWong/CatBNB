@@ -47,7 +47,8 @@ class Home extends React.Component {
         </div>
 
         <div className='body'>
-          <ReservationTool />
+          <ReservationTool
+            updateFilter={this.props.updateFilter}/>
           <TopListings />
           <div className="f-d-1">
             <div className='f-d-2'>
