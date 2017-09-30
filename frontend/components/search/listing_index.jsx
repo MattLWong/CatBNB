@@ -11,9 +11,12 @@ const renderListings = (listings, lb) => {
       />
   ))
   return(
-    <ul>
-      {list}
-    </ul>
+    <div>
+      <h1 className='no-listings-found'>No Listings Found!</h1>
+      <ul>
+        {list}
+      </ul>
+    </div>
   )
 }
 

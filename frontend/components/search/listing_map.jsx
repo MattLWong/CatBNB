@@ -45,6 +45,7 @@ class ListingMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     this.registerListeners();
     // this.props.updateFilter('minBeds', 1);
+    this.loaded = false;
   }
 
   componentWillUpdate() {
@@ -52,9 +53,18 @@ class ListingMap extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log("component did update");
     if (this.props.listings) {
       this.MarkerManager.updateMarkers(this.props.listings);
     }
+
+    if (this.props.listings.length == 0 && this.loaded == true) {
+      $('.no-listings-found').css("display","block");
+    } else {
+      $('.no-listings-found').css("display","none");
+    }
+
+
     if (this.props.lat != this.state.lat) {
       this.setState({lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng)});
       this.map.setCenter({lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng)})
@@ -62,9 +72,6 @@ class ListingMap extends React.Component {
   }
 
   registerListeners() {
-    google.maps.event.addListener(this.map, 'mousedown', () => {
-      $('.position-me').css('display', 'block');
-    })
     google.maps.event.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
@@ -72,6 +79,7 @@ class ListingMap extends React.Component {
         southWest: { lat: south, lng: west }
       };
       this.props.updateFilter('bounds', bounds);
+      this.loaded = true;
     });
   }
 

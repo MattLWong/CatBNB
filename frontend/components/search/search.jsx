@@ -16,7 +16,9 @@ const Search = ({updateFilter, listings, lat, lng, minPrice, maxPrice, minBeds, 
         listings={listings}/>
     </div>
     <div className="position-me">
+      <div className='loader'>Loading...
 
+      </div>
     </div>
     <div className="right-half">
       <ListingMap
