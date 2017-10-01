@@ -7,7 +7,8 @@ class ReviewForm extends React.Component {
     super(props)
     this.state = {
       review: "",
-      rating: 1
+      rating: 1,
+      childVisible: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,8 +19,13 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({review: ""})
-    this.props.createReview({review: {guest_id: this.props.guestId, listing_id: this.props.listingId, description: this.state.review, rating: this.state.rating}})
+    if (this.props.loggedIn) {
+      this.setState({review: ""})
+      this.props.createReview({review: {guest_id: this.props.guestId, listing_id: this.props.listingId, description: this.state.review, rating: this.state.rating}})
+    } else {
+      this.setState({childVisible: true})
+    }
+
   }
 
   render() {
@@ -29,6 +35,10 @@ class ReviewForm extends React.Component {
     }
     return(
       <div className="review-form-container">
+        { this.state.childVisible
+          ? (<span className="make-me-red">Please log in to leave a review</span>)
+          : null
+        }
         <form id="review-form" onSubmit={() => this.handleSubmit()}>
           <label className='review-form-rating'>
             Rating:
@@ -319,7 +329,8 @@ class ListingShow extends React.Component{
                 ? <ReviewForm
                   createReview={this.props.createReview}
                   guestId={this.props.guestId}
-                  listingId={this.props.listingId}/>
+                  listingId={this.props.listingId}
+                  loggedIn={this.props.loggedIn}/>
                 : null
               }
                 {this.renderReviews()}

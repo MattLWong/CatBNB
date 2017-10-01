@@ -11,6 +11,7 @@ const mapStateToProps = (state, {match}) => {
     listingId: match.params.listingId,
     listing: state.listing[parseInt(match.params.listingId)],
     guestId: state.session.currentUser.id,
+    loggedIn: Boolean(state.session.currentUser)
   })
 }
 

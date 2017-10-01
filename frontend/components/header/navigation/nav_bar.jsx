@@ -4,6 +4,9 @@ import { Link, withRouter } from 'react-router-dom';
 class NavBar extends React.Component {
   constructor(props) {
     super(props)
+    this.state({
+      dropdownVisible: false
+    })
   }
 
   renderListItems(){
