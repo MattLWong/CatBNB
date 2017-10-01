@@ -11,6 +11,7 @@ class Signup extends React.Component {
       last_name: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.doBoth = this.doBoth.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,11 +28,8 @@ class Signup extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = this.state;
-    var modal = document.getElementById('signupModal');
-    modal.style.display = "none";
+    this.props.toggleSignup();
     this.props.signup({user});
-
   }
 
   renderErrors() {
@@ -46,51 +44,58 @@ class Signup extends React.Component {
     );
   }
 
+  doBoth() {
+    this.props.toggleSignup();
+    this.props.toggleLogin();
+  }
+
   render() {
+
     return (
       <div className="modal" id="signupModal">
         <div className="modal-content" id="modal-box">
-          <span id="close-btn-2" className="close">&times;</span>
+          <span
+            id="close-btn-2"
+            className="close"
+            onClick={this.props.toggleSignup}>&times;</span>
           <form onSubmit={this.handleSubmit} className="login-form-box">
             {this.renderErrors()}
             <div className="login-form">
-              <br/>
-                <label>First name
                   <input type="text"
                     value={this.state.first_name}
                     onChange={this.update('first_name')}
-                    className="login-input"
+                    className="user-input-1"
+                    placeholder="First name"
                   />
-                </label>
                 <br/>
-                  <label>Last name
+
                     <input type="text"
                       value={this.state.last_name}
                       onChange={this.update('last_name')}
-                      className="login-input"
+                      className="user-input-1"
+                      placeholder="Last name"
                     />
-                  </label>
                   <br/>
-                    <label>Email:
                       <input type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
-                        className="login-input"
+                        className="user-input-1"
+                        placeholder="Email address"
                       />
-                    </label>
                     <br/>
-              <label>Password:
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
-                  className="login-input"
+                  className="user-input-1"
+                  placeholder="Password"
                 />
-              </label>
               <br/>
-              <input type="submit" value="Submit" />
+              <button onClick={this.handleSubmit}>Sign up!</button>
             </div>
           </form>
-          <span id='login-2'>Already have an account?</span>
+          <span
+            className="cursor"
+            onClick={this.doBoth}>Already have an account? <span className='bold'>Log in!</span></span>
         </div>
       </div>
     );

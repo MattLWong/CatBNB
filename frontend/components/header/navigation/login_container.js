@@ -7,9 +7,14 @@ const mapStateToProps = (state) => ({
   loggedIn: state.session.currentUser
 })
 
-const mapDispatchToProps = (dispatch, { location }) => ({
-  login: user => dispatch(login(user)),
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return({
+    login: user => dispatch(login(user)),
+    toggleLogin: () => ownProps.toggleLogin(),
+    toggleSignup: () => ownProps.toggleSignup()
+  })
+
+};
 
 export default connect(
   mapStateToProps,

@@ -1,9 +1,8 @@
 /*MODAL LOGIN/SIGNUP*/
 
 div.modal {
-  display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 6;
   left: 0;
   top: 0;
   width: 100%;
@@ -14,8 +13,9 @@ div.modal {
 }
 
 .close {
-  float: right;
-  margin-top: -17px;
+  position: absolute;
+  left: calc(100% - 30px);
+  margin-top: -20px;
   cursor: pointer;
   font-size: 28px;
   font-weight: bold;
@@ -30,10 +30,32 @@ div.modal {
 }
 
 .modal-content {
+  position: relative;
   background-color: #fefefe;
   margin: 22% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
   text-align: center;
+  border-radius: 8px;
+}
+
+.bold-me {
+  font-weight: 600;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.user-input-1 {
+  -webkit-appearance: none;
+  width: calc(70% + 40px);
+  height: 32px;
+  padding: 20px;
+  margin-bottom: 6px;
+  border: none;
+  font-size: medium;
+  border-radius: 4px;
+  background-color: #fcd4dc;
 }

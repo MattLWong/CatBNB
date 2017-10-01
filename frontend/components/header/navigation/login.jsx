@@ -8,8 +8,10 @@ class Login extends React.Component {
       email: '',
       password: ''
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.login_default = this.login_default.bind(this);
+    this.doBoth = this.doBoth.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,16 +28,14 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = this.state;
-    var modal = document.getElementById('loginModal');
+    this.props.toggleLogin();
     modal.style.display = "none";
     this.props.login({user});
   }
 
   login_default(e) {
     e.preventDefault();
-    var modal = document.getElementById('loginModal');
-    modal.style.display = "none";
+    this.props.toggleLogin();
     this.props.login({user: {email: "guest@gmail.com", password: "password"}});
   }
 
@@ -51,36 +51,48 @@ class Login extends React.Component {
     );
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.login({user: {email: this.state.email, password: this.state.password}});
+  }
+
+  doBoth() {
+    this.props.toggleLogin();
+    this.props.toggleSignup();
+  }
+
   render() {
     return (
       <div className="modal" id="loginModal">
         <div className="modal-content" id="modal-box">
-          <span id="close-btn-1" className="close">&times;</span>
+          <span
+            id="close-btn-1"
+            className="close"
+            onClick={this.props.toggleLogin}>&times;</span>
           <form onSubmit={this.handleSubmit} className="login-form-box">
             {this.renderErrors()}
             <div className="login-form">
-              <br/>
-              <label>Email:
                 <input type="text"
                   value={this.state.email}
                   onChange={this.update('email')}
-                  className="login-input"
+                  className="user-input-1"
+                  placeholder="Email"
                 />
-              </label>
               <br/>
-              <label>Password:
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
-                  className="login-input"
+                  className="user-input-1"
+                  placeholder="Password"
                 />
-              </label>
               <br/>
-              <input type="submit" value="Submit" />
+              <button onClick={this.handleSubmit}>Sign In</button><br/>
               <button onClick={this.login_default}>Guest log in</button>
             </div>
           </form>
-          <span id='signup-2'>Already have an account?</span>
+          <span className="cursor"
+            onClick={this.doBoth}
+            >Don't have an account? Sign up <span className="bold-me">here!</span></span>
         </div>
       </div>
     );

@@ -124,7 +124,6 @@ class ListingShow extends React.Component{
     }
   }
 
-
   returnState(zipcode) {
     let results;
     $.ajax({
