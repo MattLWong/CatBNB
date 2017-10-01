@@ -204,3 +204,7 @@ li.li-profile {
 div.profile-drop-div {
   position: absolute;
 }
+
+.nav-container-div {
+  position: relative;
+}

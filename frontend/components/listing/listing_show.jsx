@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewIndexItem from './review_index_item';
 import Stars from '../util/stars';
+import { Redirect } from 'react-router';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class ReviewForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.loggedIn) {
+      this.setState({childVisible: false})
       this.setState({review: ""})
       this.props.createReview({review: {guest_id: this.props.guestId, listing_id: this.props.listingId, description: this.state.review, rating: this.state.rating}})
     } else {
@@ -101,7 +103,8 @@ class ListingShow extends React.Component{
     }
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     const booking ={booking:
       {host_id: this.props.listing.host_id,
       guest_id: this.props.guestId,
