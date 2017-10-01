@@ -29,7 +29,6 @@ export const didNotReceiveListings = () => ({
 export const fetchListings = filters => dispatch => (
   APIUtil.fetchListings(filters).then(listings => {
     dispatch(receiveListings(listings))
-    console.log("RECEIVED LISTING");
     $('.position-me').css('display', 'none');
   })
 )

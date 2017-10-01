@@ -46,3 +46,7 @@ ol, ul {
 img {
   width: 100%
 }
+
+.root {
+  position: relative;
+}

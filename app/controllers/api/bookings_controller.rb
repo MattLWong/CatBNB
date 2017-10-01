@@ -2,12 +2,14 @@ class Api::BookingsController < ApplicationController
   def create
     @booking = Booking.create!(booking_params)
     render :show
+
   end
 
   def index
     bookings = Booking.all
     if params[:guest_id]
       @bookings = bookings.where(guest_id: params[:guest_id])
+      @bookings = @bookings.order(created_at: :asc)
       render :index
       return
     end

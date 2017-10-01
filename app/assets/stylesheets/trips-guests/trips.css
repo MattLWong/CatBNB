@@ -1,0 +1,47 @@
+.t-i-1 {
+  padding: 40px;
+  border: 1px solid lightgrey;
+  margin: 40px;
+  height: 281px;
+}
+.t-i-2-1 {
+  float: left;
+  margin-right: 16px;
+}
+
+.t-i-2-1 img {
+  width: 300px;
+}
+
+.t-i-2-2 h1 {
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 4px;
+ width: 75%;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.t-i-2-3 {
+  float: right;
+}
+
+.t-i-3-3 {
+  background-color: #F2F2F2;
+  box-shadow: 0 0 0 2px lightgrey;
+  border-radius: 50%;
+  display: inline-block;
+  width: 85px;
+  height: 85px;
+  overflow: hidden;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.guest-profile-picture {
+  width: 85px;
+}

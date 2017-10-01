@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
-import {fetchListing} from '../../actions/listing_actions';
+import { fetchListing, createReview } from '../../actions/listing_actions';
 import { asListing } from '../../reducers/selectors';
 import ListingShow from './listing_show';
+import { createBooking } from '../../actions/booking_actions'
+import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = (state, {match}) => {
   return({
@@ -13,10 +15,13 @@ const mapStateToProps = (state, {match}) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchListing: (id) => dispatch(fetchListing(id)),
-  bookListing: (info) => dispatch(createBooking(info))
+  bookListing: (info) => {
+    dispatch(createBooking(info));
+  },
+  createReview: (review) => dispatch(createReview(review))
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListingShow)
+)(ListingShow))

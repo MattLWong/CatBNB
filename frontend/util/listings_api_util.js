@@ -9,6 +9,7 @@ export const fetchListings = data => (
 export const createReview = data => (
   $.ajax({
     method: 'POST',
-    url: 'api/reviews'
+    url: 'api/reviews',
+    data
   })
 )

@@ -107,6 +107,10 @@ input.search-bar {
   background-color: #FECED0;
 }
 
+.cities-search-results a {
+  color: #484848;
+}
+
 .loupe-div {
   left: 16px;
   right: auto;

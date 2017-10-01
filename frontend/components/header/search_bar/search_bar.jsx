@@ -10,6 +10,7 @@ class SearchBar extends React.Component {
       search_string: "",
       counter: 0
     }
+    this.clearSearchBar = this.clearSearchBar.bind(this);
   }
 
   componentDidMount() {
@@ -48,17 +49,19 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({search_string: e.target.value});
-    this.setState({counter: 1});
+    let that = this;
+    this.setState({search_string: e.target.value}, function() {
+      that.props.search(that.state.search_string)
+    });
   }
 
   componentDidUpdate() {
-    if(this.state.search_string.length > 0) {
-      if (this.state.counter > 0) {
-        this.setState({counter: 0});
-        this.props.search(this.state.search_string)
-      }
-    }
+    // if(this.state.search_string.length > 0) {
+    //   if (this.state.counter > 0) {
+    //     this.setState({counter: 0});
+    //     this.props.search(this.state.search_string)
+    //   }
+    // }
   }
 
   clearSearchBar() {
@@ -73,9 +76,9 @@ class SearchBar extends React.Component {
           let lat = city.latitude.toString().slice(0,10);
           let lng = city.longitude.toString().slice(0,10);
           return(
-            <li key={idx}>
-              <span key={idx} onClick={this.clearSearchBar}>
-                <Link id="city-result" to={`/search?lat=${lat}&lng=${lng}`} key={idx}>
+            <li key={idx} >
+              <span key={idx} >
+                <Link id="city-result" to={`/search?lat=${lat}&lng=${lng}`} key={idx} onClick={this.clearSearchBar}>
                   {city.city_name}, {city.state}, {city.country}
                 </Link>
               </span>

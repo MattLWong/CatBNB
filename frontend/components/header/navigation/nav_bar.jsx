@@ -61,13 +61,13 @@ class NavBar extends React.Component {
           </a>
         </li>
         <li>
-          <a>
+          <Link to='/trips'>
             <div className="vertical-align-me">
               <div className='hover-me-grey'>
                 <span>Trips</span>
               </div>
             </div>
-          </a>
+          </Link>
         </li>
         <li>
           <a>

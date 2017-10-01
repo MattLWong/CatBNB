@@ -2,6 +2,59 @@ import React from 'react';
 import ReviewIndexItem from './review_index_item';
 import Stars from '../util/stars';
 
+class ReviewForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      review: "",
+      rating: ""
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(property) {
+    return e => {this.setState({[property]: e.target.value})}
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    debugger;
+  }
+
+  render() {
+    var textareaStyle = {
+      height: "100px",
+      width: "225px"
+    }
+    return(
+      <div className="review-form-container">
+        <form id="review-form" onSubmit={() => this.handleSubmit()}>
+          <label className='review-form-rating'>
+            Rating:
+            <select
+              onChange={this.handleChange("rating")}>
+              <option value="1">1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+            </select>
+          </label><br/>
+        <textarea
+          form="review-form"
+          onChange={this.handleChange("review")}
+          value={this.state.review}
+          placeholder="Compose your review"
+          style={textareaStyle}/><br/>
+
+          <button
+            onClick={(e) => this.handleSubmit(e)}>Submit!</button>
+        </form>
+      </div>
+    )
+  }
+}
+
 class ListingShow extends React.Component{
   constructor(props) {
     super(props)
@@ -10,7 +63,8 @@ class ListingShow extends React.Component{
       counter: 1,
       check_in: "",
       check_out: "",
-      guests: "1"
+      guests: "1",
+      childVisible: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -37,15 +91,17 @@ class ListingShow extends React.Component{
   }
 
   handleSubmit() {
-    const booking = {booking:
+    const booking ={booking:
       {host_id: this.props.listing.host_id,
       guest_id: this.props.guestId,
       listing_id: this.props.listingId,
       check_in: this.state.check_in,
       check_out: this.state.check_out}
     }
-    this.props.bookListing({booking});
-    this.props.history.push('/trips')
+    this.props.bookListing(booking);
+    $('.loading-div').css("display","block");
+    window.setTimeout( () => {
+      this.props.history.push('/trips')} , 2000);
   }
 
   update(property) {
@@ -79,6 +135,9 @@ class ListingShow extends React.Component{
     )
   }
 
+  renderReviewBox() {
+    this.setState({childVisible: !this.state.childVisible});
+  }
 
   render() {
     const { listing } = this.props;
@@ -92,6 +151,11 @@ class ListingShow extends React.Component{
       }
       return(
         <div className="listing-wrapper">
+          <div className="loading-div">
+            <div className="loader">
+
+            </div>
+          </div>
           <div className="cover-image-div-1">
             <div className="cover-image-div-2">
               <div className="cover-image-div-3">
@@ -236,12 +300,16 @@ class ListingShow extends React.Component{
                 </div>
               </div>
 
-              <div className='reviews'>
+              <div className='reviews-section'>
                 <h3>{listing.reviews.length} Reviews <div className="stars-28">
                   <Stars
                     num={listing.average_rating.toString()}/>
                 </div></h3>
-              <button className="write-a-review">Write a Review</button>
+              <button className="write-a-review" onClick={() => this.renderReviewBox()}>Write a Review</button>
+              { this.state.childVisible
+                ? <ReviewForm/>
+                : null
+              }
                 {this.renderReviews()}
               </div>
             </div>
