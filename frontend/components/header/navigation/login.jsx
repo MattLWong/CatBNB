@@ -65,11 +65,12 @@ class Login extends React.Component {
     return (
       <div className="modal" id="loginModal">
         <div className="modal-content" id="modal-box">
+          <span className='modal-title'>Log In</span>
           <span
             id="close-btn-1"
             className="close"
             onClick={this.props.toggleLogin}>&times;</span>
-          <form onSubmit={this.handleSubmit} className="login-form-box">
+          <form onSubmit={this.handleSubmit} className="form-box">
             {this.renderErrors()}
             <div className="login-form">
                 <input type="text"

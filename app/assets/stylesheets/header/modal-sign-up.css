@@ -59,3 +59,13 @@ div.modal {
   border-radius: 4px;
   background-color: #fcd4dc;
 }
+
+.modal-title {
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+.form-box {
+  margin-top: 8px;
+}

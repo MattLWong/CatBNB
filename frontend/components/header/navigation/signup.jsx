@@ -54,11 +54,12 @@ class Signup extends React.Component {
     return (
       <div className="modal" id="signupModal">
         <div className="modal-content" id="modal-box">
+          <span className='modal-title'>Sign Up</span>
           <span
             id="close-btn-2"
             className="close"
             onClick={this.props.toggleSignup}>&times;</span>
-          <form onSubmit={this.handleSubmit} className="login-form-box">
+          <form onSubmit={this.handleSubmit} className="form-box">
             {this.renderErrors()}
             <div className="login-form">
                   <input type="text"
