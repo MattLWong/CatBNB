@@ -1,7 +1,7 @@
 class Api::ReviewsController < ApplicationController
   def create
-    byebug
     @review = Review.create!(review_params)
+    render :show
   end
 
   private

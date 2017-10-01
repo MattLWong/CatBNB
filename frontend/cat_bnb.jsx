@@ -18,15 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store}/>, root);
 });
 
-import {fetchCities} from './actions/cities_search_actions';
-window.fetchCities = fetchCities;
-import { fetchListing } from './actions/listing_actions';
-window.fetchListing = fetchListing;
-import {fetchTopPicks} from './util/top_picks_util';
-window.fetchTopPicks = fetchTopPicks;
-
-import { fetchGuests, fetchTrips, createBooking } from './actions/booking_actions'
-
-window.fetchGuests = fetchGuests;
-window.fetchTrips = fetchTrips;
-window.createBooking = createBooking;
+import {createReview} from './actions/listings_actions';
+window.createReview = createReview;

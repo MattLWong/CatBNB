@@ -12,9 +12,6 @@ const ListingsReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_LISTINGS:
       return action.listings;
-    case RECEIVE_REVIEW:
-      newState[review.listing_id].reviews.push(action.review)
-      return newState;
     default:
       return state;
   }

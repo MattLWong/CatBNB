@@ -7,7 +7,7 @@ class ReviewForm extends React.Component {
     super(props)
     this.state = {
       review: "",
-      rating: ""
+      rating: 1
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,7 +18,8 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
+    this.setState({review: ""})
+    this.props.createReview({review: {guest_id: this.props.guestId, listing_id: this.props.listingId, description: this.state.review, rating: this.state.rating}})
   }
 
   render() {
@@ -121,10 +122,18 @@ class ListingShow extends React.Component{
     })
   }
 
+  orderTrips(arr) {
+    let newArr = arr.sort(function(a,b){
+      return new Date(b.date) - new Date(a.date);
+    })
+    return newArr;
+  }
+
   renderReviews() {
+    let sortedReviews = this.orderTrips(this.props.listing.reviews);
     return(
       <div className='reviews'>
-        {this.props.listing.reviews.map( (item, index) => (
+        {sortedReviews.map( (item, index) => (
           <ReviewIndexItem
             key={index}
             index={index}
@@ -307,7 +316,10 @@ class ListingShow extends React.Component{
                 </div></h3>
               <button className="write-a-review" onClick={() => this.renderReviewBox()}>Write a Review</button>
               { this.state.childVisible
-                ? <ReviewForm/>
+                ? <ReviewForm
+                  createReview={this.props.createReview}
+                  guestId={this.props.guestId}
+                  listingId={this.props.listingId}/>
                 : null
               }
                 {this.renderReviews()}
