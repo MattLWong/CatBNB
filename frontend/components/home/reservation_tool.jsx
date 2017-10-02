@@ -26,7 +26,8 @@ class ReservationTool extends React.Component {
     }
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     if(this.state.search_string == "") {
       this.setState({error: "error"});
       return

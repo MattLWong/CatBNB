@@ -2,7 +2,15 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import LoginContainer from './login_container';
 import SignupContainer from './signup_container';
+import HostContainer from '../../host/host_container';
 
+class HostRequiresLoggedIn extends React.Component {
+  render() {
+    return(
+      <div>You must be logged in to become a host</div>
+    )
+  }
+}
 class Dropdown extends React.Component {
   doBoth() {
     this.props.toggleDropdown();
@@ -44,11 +52,13 @@ class NavBar extends React.Component {
     this.state = {
       childVisible: false,
       loginVisible: false,
-      signupVisible: false
+      signupVisible: false,
+      hostVisible: false
     }
     this.toggleLogin = this.toggleLogin.bind(this);
     this.toggleSignup = this.toggleSignup.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.toggleHost = this.toggleHost.bind(this);
   }
 
   toggleDropdown() {
@@ -77,6 +87,22 @@ class NavBar extends React.Component {
     this.setState({signupVisible: !this.state.signupVisible});
   }
 
+  toggleHost(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    this.setState({hostVisible: !this.state.hostVisible});
+  }
+
+  renderHostIfLoggedIn() {
+    if (this.props.loggedIn) {
+      return (<HostContainer
+        toggleHost={this.toggleHost} />)
+    } else {
+      return (<div className="log-in-warning-host"> You must be logged in to host your spot</div>)
+    }
+  }
+
   renderLoggedOutItems() {
     return(
       <div>
@@ -93,8 +119,12 @@ class NavBar extends React.Component {
               toggleSignup={this.toggleSignup}/>)
           : null
         }
+        { this.state.hostVisible
+          ? <HostRequiresLoggedIn/>
+          : null
+        }
         <ul className="nav-ul">
-          <li>
+          <li onClick={this.toggleHost}>
             <a>
               <div className="vertical-align-me">
                 <div className='hover-me-grey'>
@@ -136,8 +166,13 @@ class NavBar extends React.Component {
               logout={this.props.logout}/>)
           : null
         }
+        { this.state.hostVisible
+          ? <HostContainer
+            toggleHost={this.toggleHost}/>
+          : null
+        }
         <ul className="nav-ul">
-          <li>
+          <li onClick={this.toggleHost}>
             <a>
               <div className="vertical-align-me">
                 <div className='hover-me-grey'>
