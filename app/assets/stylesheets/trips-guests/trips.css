@@ -45,3 +45,9 @@
 .guest-profile-picture {
   width: 85px;
 }
+
+.no-current-trips {
+  margin: 40px 0px 60px;
+  font-size: 35px;
+  font-family: 'Cedarville Cursive', sans-serif;
+}

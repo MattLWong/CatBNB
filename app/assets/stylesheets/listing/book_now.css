@@ -94,7 +94,14 @@
 .book-now-submit {
   width: 100%;
   margin-top: 18px;
-  height: 30px;
+  height: 38px;
+  -webkit-appearance: button;
+  border-radius: 6px;
+  background-color: #FF5A5F;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
 }
 
 .never-be-charged {

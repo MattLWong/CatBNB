@@ -29,7 +29,7 @@ class Signup extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.toggleSignup();
-    this.props.signup({user});
+    this.props.signup({user: {first_name: this.state.first_name, last_name: this.state.last_name, email: this.state.email, password: this.state.password}});
   }
 
   renderErrors() {
@@ -91,12 +91,12 @@ class Signup extends React.Component {
                   placeholder="Password"
                 />
               <br/>
-              <button onClick={this.handleSubmit}>Sign up!</button>
+              <button className="signup-button" onClick={this.handleSubmit}>Sign up!</button>
             </div>
           </form>
           <span
             className="cursor"
-            onClick={this.doBoth}>Already have an account? <span className='bold'>Log in!</span></span>
+            onClick={this.doBoth}>Already have an account? <span className='bold-me'>Log in!</span></span>
         </div>
       </div>
     );

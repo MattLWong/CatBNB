@@ -5,3 +5,21 @@
 .review-form-rating select {
   margin-bottom: 5px;
 }
+
+.make-me-red {
+  margin-bottom: 8px
+  color: red;
+  font-weight: 500;
+}
+
+.write-a-review {
+  width: 125px;
+  height: 25px;
+  -webkit-appearance: button;
+  background-color: #198C82;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  font-size: 13px;
+  border-radius: 5px;
+}

@@ -22,7 +22,7 @@
   position: relative;
 }
 
-a.logo-anchor {
+.logo-anchor {
   display: table-cell;
   cursor: pointer;
 }
@@ -46,7 +46,7 @@ a.logo-anchor {
   transition: 0.25s color;
 }
 
-img#logo {
+#logo {
   display: block;
   height: 1em;
   width: 1em;
@@ -65,18 +65,20 @@ img#logo {
   border-left: 1px solid #DBDBDB;
 }
 
-form.search-form {
+.search-form {
   color: #484848;
   position: relative;
 }
 
-input.search-bar {
+.search-bar {
   padding-left: 48px;
   height: 64px;
   margin: 0px;
   border: none;
   background: none;
   width: 100%;
+  -webkit-appearance: none;
+  font-size: 14px;
 }
 
 .cities-search-results {

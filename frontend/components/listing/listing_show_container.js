@@ -7,10 +7,12 @@ import { createBooking } from '../../actions/booking_actions'
 import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = (state, {match}) => {
+  let guestId = state.session.currentUser ? state.session.currentUser.id : null;
+
   return({
     listingId: match.params.listingId,
     listing: state.listing[parseInt(match.params.listingId)],
-    guestId: state.session.currentUser.id,
+    guestId,
     loggedIn: Boolean(state.session.currentUser)
   })
 }

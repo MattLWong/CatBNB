@@ -35,7 +35,7 @@ ul.nav-ul > li > a, ul.nav-ul button {
 }
 
 .nav-ul a:hover {
-  border-bottom: 2px solid #767676;
+  border-bottom: 2px solid #FF5A5F;
 }
 
 .hover-me-grey:hover {
@@ -93,10 +93,15 @@ div.profile-drop-div {
 
 .d-d-2 {
   list-style: none;
+  padding: 1px;
+  border-left: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .d-d-3 {
   background-color: white;
+  margin-bottom: 2px;
 }
 
 .d-d-4 {
@@ -109,9 +114,17 @@ div.profile-drop-div {
   border-bottom: 1px solid lightgrey;
 }
 
+.d-d-6:hover{
+  border-bottom: 1px solid darkgrey;
+}
+
 .d-d-6 span {
   color: rgb(72,72,72);
   font-weight: 400;
   letter-spacing: 0px;
   font-size: 15px;
+}
+
+.d-d-6 {
+  cursor: pointer;
 }

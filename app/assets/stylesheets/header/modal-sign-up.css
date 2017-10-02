@@ -69,3 +69,15 @@ div.modal {
 .form-box {
   margin-top: 8px;
 }
+
+.login-button, .signup-button, .guest-login-button {
+  margin-bottom: 4px;
+  -webkit-appearance: button;
+  background-color: #198C82;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  width: calc(30% + 20px);
+  height: 32px;
+}

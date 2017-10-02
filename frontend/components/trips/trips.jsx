@@ -46,6 +46,11 @@ class Trips extends React.Component {
 
   renderTrips() {
     let orderedTrips = this.orderTrip(this.props.trips)
+    if(this.props.trips.length == 0) {
+      return(<div className="no-current-trips">
+        You have no upcoming trips. Book one today!
+      </div>)
+    }
     return orderedTrips.map( (trip, idx) => {
       return(
         <TripIndexItem

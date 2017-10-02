@@ -87,8 +87,8 @@ class Login extends React.Component {
                   placeholder="Password"
                 />
               <br/>
-              <button onClick={this.handleSubmit}>Sign In</button><br/>
-              <button onClick={this.login_default}>Guest log in</button>
+              <button className="login-button" onClick={this.handleSubmit}>Sign In</button><br/>
+              <button className="guest-login-button" onClick={this.login_default}>Guest log in</button>
             </div>
           </form>
           <span className="cursor"

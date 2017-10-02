@@ -1,0 +1,26 @@
+.footer-ul {
+  padding-top: 8px;
+  margin-left: 6%;
+  margin-right: 6%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #484848;
+  margin-bottom: 10px;
+}
+
+.footer-li {
+  margin: 0 1em 4px;
+}
+
+.footer-a {
+  color: #484848;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.f-h :hover {
+  border-bottom: 2px solid #FF5A5F;
+}
