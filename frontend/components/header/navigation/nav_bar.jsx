@@ -156,13 +156,13 @@ class NavBar extends React.Component {
             </Link>
           </li>
           <li>
-            <a>
+            <Link to='/visitors'>
               <div className="vertical-align-me">
                 <div className='hover-me-grey'>
                   <span>Visitors</span>
                 </div>
               </div>
-            </a>
+            </Link>
           </li>
           <li className="li-profile" onClick={() => this.toggleDropdown()}>
             <a id="profile-anchor">

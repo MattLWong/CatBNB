@@ -97,11 +97,16 @@ div.profile-drop-div {
   border-left: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
 
 .d-d-3 {
   background-color: white;
   margin-bottom: 2px;
+}
+
+.d-d-3:last-child {
+  margin-bottom: 0px;
 }
 
 .d-d-4 {

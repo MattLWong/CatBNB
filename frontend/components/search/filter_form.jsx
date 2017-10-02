@@ -53,14 +53,14 @@ class FilterForm extends React.Component {
         <form className="filter-form"
           >
           <label>
-            Check In
+            Check In &nbsp;
             <input
               type="date"
               onChange={this.handleChange("check_in")}
               />
           </label>
           <label>
-            Check Out
+            Check Out &nbsp;
             <input
               type="date"
               onChange={this.handleChange('checkout')}
@@ -68,15 +68,16 @@ class FilterForm extends React.Component {
           </label>
           <br/>
           <label>
-            Min
+            Min &nbsp;
             <input
               type="number"
               value={this.state.minPrice}
               onChange={this.handleChange("minPrice")}
               onBlur={this.updateFilter('minPrice')}/>
           </label>
+            &nbsp;
           <label>
-            Max
+            Max &nbsp;
             <input
               type="number"
               value={this.state.maxPrice}

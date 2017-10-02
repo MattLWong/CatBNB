@@ -57,7 +57,12 @@
 .img-wrapper {
   height: 200px;
   width: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 6px;
 }
+
 .listing-index-item img {
   padding-right: 8px;
   height: 100%;
@@ -95,7 +100,7 @@
 }
 
 .filter-form {
-  margin-bottom: 10px;
+  margin: 10px 0px;;
 }
 
 .listing-marker-label {

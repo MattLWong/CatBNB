@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchTopPicks } from '../../util/top_picks_util'
 import { asArray } from '../../reducers/selectors';
-import TopListingItem from './listing_item';
+import TopListingItem from './top_listing_item';
 
 class TopListings extends React.Component {
   constructor(props) {

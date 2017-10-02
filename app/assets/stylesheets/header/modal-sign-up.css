@@ -32,7 +32,7 @@ div.modal {
 .modal-content {
   position: relative;
   background-color: #fefefe;
-  margin: 22% auto;
+  margin: 14% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
@@ -53,7 +53,7 @@ div.modal {
   width: calc(70% + 40px);
   height: 32px;
   padding: 20px;
-  margin-bottom: 6px;
+  margin-bottom: 11px;
   border: none;
   font-size: medium;
   border-radius: 4px;
@@ -71,7 +71,7 @@ div.modal {
 }
 
 .login-button, .signup-button, .guest-login-button {
-  margin-bottom: 4px;
+  margin-bottom: 11px;
   -webkit-appearance: button;
   background-color: #198C82;
   font-size: 14px;
