@@ -125,11 +125,11 @@ class ListingShow extends React.Component{
   }
 
   returnState(zipcode) {
-    let results;
     $.ajax({
       method: "GET",
       url: `http://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}`
     }).then(res => {
+      debugger;
       this.setState({city: res.results[0].formatted_address, counter: 0})
     })
   }
