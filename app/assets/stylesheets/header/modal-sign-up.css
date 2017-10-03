@@ -1,6 +1,6 @@
 /*MODAL LOGIN/SIGNUP*/
 
-div.modal {
+.modal {
   position: fixed;
   z-index: 6;
   left: 0;
@@ -80,4 +80,9 @@ div.modal {
   color: #ffffff;
   width: calc(30% + 20px);
   height: 32px;
+  cursor: pointer;
+}
+
+.host-requires-logged-in {
+  z-index: 1;
 }

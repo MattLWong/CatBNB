@@ -78,5 +78,4 @@ module CitiesFactory
   City.create(city_name: "Glen Park, San Francisco", state: "California", country: "United States")
   City.create(city_name: "Excelsior, San Francisco", state: "California", country: "United States")
 
-  # Easy Bay
 end

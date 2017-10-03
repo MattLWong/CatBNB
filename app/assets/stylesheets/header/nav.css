@@ -133,3 +133,22 @@ div.profile-drop-div {
 .d-d-6 {
   cursor: pointer;
 }
+
+.logged-out-nav-3 {
+  position: relative;
+}
+
+.host-requires-logged-in {
+  position: absolute;
+  top: 65px;
+  background-color: rgba(255,255,255,255.1);
+  padding: 12px;
+  left: -152px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;;
+}
+
+.host-requires-logged-in-span {
+  color: #198C82;
+  font-weight: 500;
+}

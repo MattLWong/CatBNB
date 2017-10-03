@@ -1,0 +1,80 @@
+.host-container {
+  position: relative;
+  margin: 8% auto;
+  width: 60%;
+  background-color: #ffffff;
+  height: 70%;
+  overflow-y: scroll;
+  z-index: 99;
+  padding: 60px;
+  border-radius: 5px;
+}
+
+.close-2 {
+  position: absolute;
+  left: calc(100% - 30px);
+  margin-top: -57px;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+}
+
+.host-title {
+  text-align: center;
+  font-size: 35px;
+  font-family: 'Cedarville cursive', sans-serif;
+  margin-bottom: 20px;
+}
+
+.host-quote {
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.host-form > input {
+  width: 350px;
+
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+  border: none;
+  background-color: #198C82;
+  color: #ffffff;
+  padding: 20px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+.host-form > input::-webkit-input-placeholder, .host-form > textarea::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+.host-form > input::-moz-placeholder, .host-form > textarea::-moz-placeholder {
+  color: #ffffff;
+}
+
+.host-form > input:-moz-placeholder, .host-form > textarea:-moz-placeholder {
+  color: #ffffff;
+}
+
+.host-form > input:-ms-input-placeholder, .host-form > textarea:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.host-form > select, .host-form > button {
+  display: block;
+  margin: 0 auto;
+  width: 350px;
+  height: 37px;
+}
+
+.h-e-s {
+  color: red;
+}
+
+.h-e-ul {
+  text-align: center;
+  color: #aa2406;
+}

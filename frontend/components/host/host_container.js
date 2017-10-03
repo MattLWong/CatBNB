@@ -3,6 +3,8 @@ import Host from './host'
 import {createListing} from '../../actions/listing_actions';
 
 const mapStateToProps = (state, ownProps) => ({
+  host_id: state.session.currentUser.id,
+  listing_id: Object.keys(state.listing)[0]
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -10,6 +12,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Host)

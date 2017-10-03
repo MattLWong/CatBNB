@@ -7,7 +7,11 @@ import HostContainer from '../../host/host_container';
 class HostRequiresLoggedIn extends React.Component {
   render() {
     return(
-      <div>You must be logged in to become a host</div>
+      <div className="host-requires-logged-in">
+        <span className="host-requires-logged-in-span">
+          You must be logged in to become a host
+        </span>
+      </div>
     )
   }
 }
@@ -77,6 +81,7 @@ class NavBar extends React.Component {
     if (e) {
       e.preventDefault();
     }
+    this.setState({hostVisible: false});
     this.setState({loginVisible: !this.state.loginVisible});
   }
 
@@ -84,6 +89,7 @@ class NavBar extends React.Component {
     if (e) {
       e.preventDefault();
     }
+    this.setState({hostVisible: false});
     this.setState({signupVisible: !this.state.signupVisible});
   }
 
@@ -94,18 +100,9 @@ class NavBar extends React.Component {
     this.setState({hostVisible: !this.state.hostVisible});
   }
 
-  renderHostIfLoggedIn() {
-    if (this.props.loggedIn) {
-      return (<HostContainer
-        toggleHost={this.toggleHost} />)
-    } else {
-      return (<div className="log-in-warning-host"> You must be logged in to host your spot</div>)
-    }
-  }
-
   renderLoggedOutItems() {
     return(
-      <div>
+      <div className='logged-out-nav-3'>
         { this.state.loginVisible
           ? (<LoginContainer
               toggleLogin={this.toggleLogin}

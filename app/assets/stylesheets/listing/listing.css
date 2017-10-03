@@ -119,9 +119,11 @@ a.host-profile-picture {
 }
 
 
-div.listing-title h1 {
+.listing-title h1 {
   font-size: 38px;
   font-weight: 800;
+  width: 519px;
+  overflow: hidden;
 }
 
 .stars-rating {

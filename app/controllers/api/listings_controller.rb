@@ -31,9 +31,11 @@ class Api::ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
+      @reviews = @listing.reviews
+      @average_rating = @listing.average_rating
+      @average_rating_precise = @listing.average_rating_precise
       render :show
     else
-      # see if this works
       render json: @listing.errors.messages, status: :unprecessable_entity
     end
   end
@@ -49,7 +51,7 @@ class Api::ListingsController < ApplicationController
   end
 
   def listing_params
-    input = params.require(:listing).permit(
+    params.require(:listing).permit(
       :title,
       :description,
       :host_id,

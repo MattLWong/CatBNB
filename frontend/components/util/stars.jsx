@@ -12,6 +12,12 @@ class Stars extends React.Component {
   render() {
     let half_star, full_stars, empty_stars;
 
+    if (this.props.num == 0) {
+      return (
+        <div className="no-stars">No reviews yet.</div>
+      )
+    }
+
     if (parseFloat(this.props.num) % 1 != 0) {
       half_star = true;
       full_stars = parseInt(this.props.num.slice(0,1));

@@ -17,3 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });
+
+//
+import { createListing } from './actions/listing_actions';
+//
+window.createListing = createListing;
