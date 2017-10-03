@@ -108,7 +108,7 @@ class SearchBar extends React.Component {
                 onChange={this.handleChange.bind(this)}
                 />
               <div className="loupe-div">
-                <img id="loupe" src="/assets/loupe.jpg"></img>
+                <img id="loupe" src="http://res.cloudinary.com/mwong9968/image/upload/v1507011828/loupe_nlfbzy.jpg"></img>
               </div>
             </div>
           </form>
