@@ -258,7 +258,7 @@ class ListingShow extends React.Component{
               <div className="listing-header">
                 <div className="listing-title">
                   <h1>{listing.title}</h1><br/>
-                  <span>{this.state.city}&nbsp;·&nbsp;<div className="stars-17"><Stars
+                  <span>{listing.city},&nbsp;CA&nbsp;{listing.zip}&nbsp;·&nbsp;<div className="stars-17"><Stars
                     num={listing.average_rating.toString()}/></div> {listing.average_rating_precise}</span>
                 </div>
                 <div className="host-profile-1">
