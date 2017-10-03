@@ -63,6 +63,7 @@ class NavBar extends React.Component {
     this.toggleSignup = this.toggleSignup.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.toggleHost = this.toggleHost.bind(this);
+    this.toggleDropdownFalse = this.toggleDropdownFalse.bind(this);
   }
 
   toggleDropdown() {
@@ -98,6 +99,10 @@ class NavBar extends React.Component {
       e.preventDefault();
     }
     this.setState({hostVisible: !this.state.hostVisible});
+  }
+
+  toggleDropdownFalse(e) {
+    this.setState({childVisible: false})
   }
 
   renderLoggedOutItems() {
@@ -178,7 +183,7 @@ class NavBar extends React.Component {
               </div>
             </a>
           </li>
-          <li>
+          <li onClick={this.toggleDropdownFalse}>
             <Link to='/trips'>
               <div className="vertical-align-me">
                 <div className='hover-me-grey'>
@@ -187,7 +192,7 @@ class NavBar extends React.Component {
               </div>
             </Link>
           </li>
-          <li>
+          <li onClick={this.toggleDropdownFalse}>
             <Link to='/visitors'>
               <div className="vertical-align-me">
                 <div className='hover-me-grey'>

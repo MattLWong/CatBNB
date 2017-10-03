@@ -36,7 +36,7 @@ class Login extends React.Component {
   login_default(e) {
     e.preventDefault();
     this.props.toggleLogin();
-    this.props.login({user: {email: "guest@gmail.com", password: "password"}});
+    this.props.login({user: {email: "mwong9968@gmail.com", password: "password"}});
   }
 
   renderErrors() {

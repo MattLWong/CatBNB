@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/session_api_util'
 
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
@@ -24,9 +25,10 @@ export const signup = user => dispatch => (
 export const login = user => dispatch => (
   APIUtil.login(user).then(user => (
     dispatch(receiveCurrentUser(user))
-  ), err => (
+  ), err => {
+    debugger;
     dispatch(receiveSessionErrors(err.responseJSON))
-  ))
+  })
 );
 
 export const logout = () => dispatch => (
