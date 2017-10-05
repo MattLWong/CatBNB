@@ -77,7 +77,8 @@ class ListingShow extends React.Component{
       check_in: "",
       check_out: "",
       guests: "1",
-      childVisible: false
+      childVisible: false,
+      mustBeLoggedInVisible: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -105,17 +106,22 @@ class ListingShow extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    const booking ={booking:
-      {host_id: this.props.listing.host_id,
-      guest_id: this.props.guestId,
-      listing_id: this.props.listingId,
-      check_in: this.state.check_in,
-      check_out: this.state.check_out}
+    if (!this.props.guestId) {
+      this.setState({mustBeLoggedInVisible: true})
+    } else {
+      this.setState({mustBeLoggedInVisible: false})
+      const booking ={booking:
+        {host_id: this.props.listing.host_id,
+        guest_id: this.props.guestId,
+        listing_id: this.props.listingId,
+        check_in: this.state.check_in,
+        check_out: this.state.check_out}
+      }
+      this.props.bookListing(booking);
+      $('.loading-div').css("display","block");
+      window.setTimeout( () => {
+        this.props.history.push('/trips')} , 2000);
     }
-    this.props.bookListing(booking);
-    $('.loading-div').css("display","block");
-    window.setTimeout( () => {
-      this.props.history.push('/trips')} , 2000);
   }
 
   update(property) {
@@ -129,7 +135,6 @@ class ListingShow extends React.Component{
       method: "GET",
       url: `http://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}`
     }).then(res => {
-      debugger;
       this.setState({city: res.results[0].formatted_address, counter: 0})
     })
   }
@@ -248,6 +253,10 @@ class ListingShow extends React.Component{
                       Book Now
                     </button>
                   </form>
+                  { this.state.mustBeLoggedInVisible
+                    ? (<div><span className="logged-in-error">Please log in to book this listing.</span></div>)
+                    : null
+                  }
                   <div className="never-be-charged">
                     <span className='credit-card'>Your credit card will not be charged</span>
                   </div>

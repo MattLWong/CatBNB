@@ -110,3 +110,7 @@
   margin: 18px auto 0px;
   width: 75%;
 }
+
+.logged-in-error {
+  color: #ef440b;
+}
