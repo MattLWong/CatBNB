@@ -2,6 +2,10 @@ iframe {
   height: 200px;
 }
 
+.header {
+  /*min-width: 1080px;*/
+}
+
 .loading-gify {
   position: relative;
   height: 100px;

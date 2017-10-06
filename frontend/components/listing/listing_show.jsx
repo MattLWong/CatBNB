@@ -71,10 +71,11 @@ class ReviewForm extends React.Component {
 class ListingShow extends React.Component{
   constructor(props) {
     super(props)
+    let today = new Date();
     this.state = {
       address: null,
       counter: 1,
-      check_in: "",
+      check_in: `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`,
       check_out: "",
       guests: "1",
       childVisible: false,
@@ -107,21 +108,22 @@ class ListingShow extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     if (!this.props.guestId) {
-      this.setState({mustBeLoggedInVisible: true})
-    } else {
-      this.setState({mustBeLoggedInVisible: false})
-      const booking ={booking:
-        {host_id: this.props.listing.host_id,
-        guest_id: this.props.guestId,
-        listing_id: this.props.listingId,
-        check_in: this.state.check_in,
-        check_out: this.state.check_out}
-      }
-      this.props.bookListing(booking);
-      $('.loading-div').css("display","block");
-      window.setTimeout( () => {
-        this.props.history.push('/trips')} , 2000);
+      this.setState({mustBeLoggedInVisible: true});
+      return
     }
+    this.setState({mustBeLoggedInVisible: false})
+    const booking ={booking:
+      {host_id: this.props.listing.host_id,
+      guest_id: this.props.guestId,
+      listing_id: this.props.listingId,
+      check_in: this.state.check_in,
+      check_out: this.state.check_out}
+    }
+    this.props.bookListing(booking);
+    $('.loading-div').css("display","block");
+    window.setTimeout( () => {
+      this.props.history.push('/trips')} , 2000);
+
   }
 
   update(property) {
