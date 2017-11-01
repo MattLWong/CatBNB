@@ -9,9 +9,9 @@ CatBNB is a full-stack web application inspired by AirBNB. It utilizes Ruby on R
 
 ## Features and Implementation
 
-##### Rendering Listings
+#### Rendering Listings
 
-###### Adding Listings
+### Adding Listings
 
 ###### Navigation
 
