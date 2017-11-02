@@ -21,7 +21,7 @@ In addition, I realized that the listings on the left half took some time to loa
 
 ### Rendering Listings
 
-Users should see a beautiful display of the information of each listing. What is essential gathering information from state and rendering it in a coherent, aesthetically-pleasing way that doesn't break on different screen sizes. There are over 34 attributes from state to render on the screen, including potentially many reviews.
+Users should see a beautiful display of pertinent information of each listing. What is essential is gathering information from the state and rendering it in a coherent, aesthetically-pleasing way that doesn't break on different screen sizes. There are over 34 attributes from state to render on the screen, including potentially dozens reviews.
 
 ![Listing](/public/listing.jpg)
 
@@ -31,23 +31,38 @@ Sample state:
 
 I had to figure out a way to add and remove CSS properties in React to get the strike-through lines and font weight of amenities. This was done through Javascript introduced CSS styling.
 
+```javascript
+renderStyle(bool) {
+  if (bool) {
+    return {
+      textDecoration: "line-through",
+      fontWeight: 300
+    }
+  } else {
+    return { fontWeight: "500"}
+  }
+}
+```
+
 ![Amenities](/public/amenities.jpg)
+
+Clicking Write Review renders a form component that immediately updates state when a review is written, so that the review can be seen without refreshing the page.
 
 ### Adding Listings
 
 Users should be able to add a listing, and I accomplished this by introducing a new React component that overlays, when activated, over the main page. Users are denied access to this modal if they are not logged in.
 
-There is front-end verification that ensures that the user has typed in proper information. With more time, I would like to introduce backend error propagation to ensure that only valid addresses can be added as listings.
+There is front-end verification that ensures that the user has typed in proper information. With more time, I would like to introduce backend error propagation through errors reducers to ensure that only valid addresses can be added as listings.
 
 ![Add Listing](/public/add-listing.jpg)
 
 ### Navigation
 
-A crucial part of user experience is a navigations bar that responds quickly to user actions. I used setState properties in React to allow components to render immediately when the user clicks a button. "Host Your Spot", "Trips", "Visitors", "Profile", "Become a Host", "Log In", and "Sign Up" are all wired so that the components render appropriately when clicked.
+A crucial part of user experience is a navigations bar that responds quickly to user actions. I used setState properties in React to allow components to render immediately when the user clicks a button. "Host Your Spot", "Trips", "Visitors", "Profile", "Become a Host", "Log In", and "Sign Up" are all wired so that the components render appropriately when clicked. This was a major performance improvement over a method with jQuery I used earlier.
 
 ### Search and Autocomplete
 
-I wanted to ensure that users could search popular destinations, so one of the first things I did was populate the database with popular locations in California. I used a Ruby gem called Geocoder to automatically insert Latitude and Longitude to each of the cities and locales.
+I wanted to ensure that users could search popular destinations without having to typing it out specific, so one of the first things I did was populate the database with popular locations in California, like San Francisco and Los Angeles. I then used a Ruby gem called Geocoder that automatically inserts Latitude and Longitude to each of the cities and locales, which allows the user to see the location on the map instantly.
 
 The server is a bit slow, but if you types "S" in the search bar, it will slowly process all locations that start with "S" and display them as an unordered list over the search component.
 
@@ -55,7 +70,7 @@ The server is a bit slow, but if you types "S" in the search bar, it will slowly
 
 ### Stars
 
-This took more effort that I had imagined, because I wanted to offer the user two ways of seeing a listing's rating: By precise number (to two decimal places), as well as a 5 stars count, which rounds to the nearest 0.5.
+This took some more effort that I had imagined to create Stars, because I wanted to offer the user two ways of seeing a listing's rating: By precise number (to two decimal places), as well as a 5 stars count, which rounds to the nearest 0.5.
 
 I created a Stars component that could be reused, which takes the rating in precise number to be parsed in a stars count. I also used some complex logic to help differentiate between a half-star and a full-star. See code below:
 
