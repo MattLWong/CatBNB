@@ -35,9 +35,23 @@ I had to figure out a way to add and remove CSS properties in React to get the s
 
 ### Adding Listings
 
+Users should be able to add a listing, and I accomplished this by introducing a new React component that overlays, when activated, over the main page. Users are denied access to this modal if they are not logged in.
+
+There is front-end verification that ensures that the user has typed in proper information. With more time, I would like to introduce backend error propagation to ensure that only valid addresses can be added as listings.
+
+![Add Listing](/public/add-listing.jpg)
+
 ### Navigation
 
+A crucial part of user experience is a navigations bar that responds quickly to user actions. I used setState properties in React to allow components to render immediately when the user clicks a button. "Host Your Spot", "Trips", "Visitors", "Profile", "Become a Host", "Log In", and "Sign Up" are all wired so that the components render appropriately when clicked.
+
 ### Search and Autocomplete
+
+I wanted to ensure that users could search popular destinations, so one of the first things I did was populate the database with popular locations in California. I used a Ruby gem called Geocoder to automatically insert Latitude and Longitude to each of the cities and locales.
+
+The server is a bit slow, but if you types "S" in the search bar, it will slowly process all locations that start with "S" and display them as an unordered list over the search component.
+
+![Search](/public/search.jpg)
 
 ### Stars
 
