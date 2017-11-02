@@ -11,11 +11,11 @@ CatBNB is a full-stack web application inspired by AirBNB. It utilizes Ruby on R
 
 ### Map Search
 
-One of the highlight of this project was creating a map that displays all the listing in the boundaries. Changing in the map dimensions should trigger an AJAX request that updates the state of the application. Then, once updated, the listing should refresh to display information of listing on the map.
+One of the highlights of this project was creating a flexible map that displays all the listing within the containing boundaries. Changing in the map boundaries by dragging the cursor should instantaneously trigger an AJAX request that then updates the state of the application through Redux's reducer function. Then, once updated, the listings (on left) and price points should refresh to display information of listing on the map.
 
-What I really enjoyed was creating price points on the map. This was possible by creating a png file and passing in the price of each listing to the map.
+What I really enjoyed was creating specific price points on the map. This was possible by creating a png file (through some finagling) and passing in the price of each listing to the Google map.
 
-In addition, I realized that the listings on the left half took time to load, and gave incorrect information (old information as the map was updating). I found a way to "hide" the content with an overlay and loading gif, that way, users know that the information is being loaded from the the server.
+In addition, I realized that the listings on the left half took some time to load, and this gave incorrect information (old information as the map was updating). I didn't want the user to think this information was valid, so I found a way to "hide" the content with an overlay and loading gif, that way, users know that the information is being loaded from the the server. The overlay is removed when the search has finished updating.
 
 ![Map Search](/public/map.jpg)
 
